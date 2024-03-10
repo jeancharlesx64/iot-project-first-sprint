@@ -22,5 +22,21 @@ We are group 10, a team made up of 6 members:
 - Kaique Sotero | @kaiquetozim
 - Marcelo Alves | @171marcelo
 
-#### Problem found - Lack of temperature and humidity management in corn storage
+<hr>
 
+<h3 align="center">Problem found - Lack of temperature and humidity management in corn storage</h3>
+
+Failure to properly manage temperature and humidity in corn storage can result in a number of significant problems. Corn is a sensitive product that can be easily affected by adverse environmental conditions. Here are some of the consequences of lack of temperature and humidity control:
+
+- **Quality degradation:** Excessive moisture can lead to the proliferation of fungi and bacteria, resulting in mold, fermentation and rotting of corn. This not only compromises the quality of the product, but can also make it unsuitable for human or animal consumption.
+
+- **Weight loss and nutritional value:** Improper storage conditions can lead to loss of moisture in corn, resulting in weight loss and decreased nutritional value. This can negatively affect profitability for farmers and the quality of animal feed.
+
+- **Risks to animal and human health:** Corn contaminated by mycotoxins, which are by-products of fungi present in conditions of high humidity, can pose serious risks to animal and human health if consumed. Mycotoxins can cause serious illness and even be fatal in animals and humans.
+
+- **Economic waste:** Corn spoilage due to lack of temperature and humidity control results in economic waste for farmers and the food industry as a whole. This includes additional costs of disposing of damaged products and lost profit potential.
+
+There are numerous problems that were found by team 10, which affect society and the general economy, as **10% of corn production** is lost due to lack of management due to corn production.
+
+<h3 align="center">Solution</h3>
+The solution defined by the group is to create a simulative prototype of a device that will constantly monitor temperature (and humidity with the temperature sensors (DHT11) and humidity with the Arduino Uno, where this data will be sent via API to a Node server running on Cloud, where data will travel to a Web platform where only our application client can have access and thus be able to make a definitive decision for their business
