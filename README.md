@@ -14,13 +14,13 @@ Only these must be used, no more, and must take as premises that it is a SIMULAT
 The Teams must have as requirements some "deliverables", these are tasks that must be mandatory to be demanded in each Sprint(1 semester, there are 3 sprints, these are short periods in which fragments of a project are presented, 1/3, 2/3, 3/3), which will then be presented and analyzed by the Research and Innovation advisor professor.
 
 #### 10th Group
-We are group 10, a team made up of 6 members:
-- Jean Charles | @jeancharlesx64
-- Pedro Miguel | @spedro-miguel
-- Isabella Matos | @IsabellaMatos44801
-- Isaque Borges | @IsaqueBorges01
-- Kaique Sotero | @kaiquetozim
-- Marcelo Alves | @171marcelo
+We are 10th group, a team made up of 6 members:
+- Jean Charles | [@jeancharlesx64](https://github.com/jeancharlesx64)
+- Pedro Miguel | [@spedro-miguel](https://github.com/spedro-miguel)
+- Isabella Matos | [@IsabellaMatos44801](https://github.com/IsabellaMatos44801)
+- Isaque Borges | [@IsaqueBorges01](https://github.com/IsaqueBorges01)
+- Kaique Sotero | [@kaiquetozim](https://github.com/kaiquetozim)
+- Marcelo Alves | [@171marcelo](https://github.com/171marcelo)
 
 <hr>
 
@@ -52,4 +52,4 @@ The solution defined by the group is to create a simulative prototype of a devic
 </div>
 <br>
 
-We chose the name GuardTech+ which references monitoring technology with the + signifying Plus, but also, in Portuguese representing the word "Mais", which in some countries is what corn is called, as in French, Spanish, Italian and other languages. We decided to use a simple logo representing corn, with a simple minimalist font and color with the slogan "Sempre Mais com você" ("Always more with you") with this pun suggesting that producers should no longer lose their corn in storage using our solution.
+We chose the name **GuardTech+** which references monitoring technology with the + signifying Plus, but also, in Portuguese representing the word "Mais", which in some countries is what corn is called, as in French, Spanish, Italian and other languages. We decided to use a simple logo representing corn, with a simple minimalist font and color with the slogan "Sempre Mais com você" ("Always more with you") with this pun suggesting that producers should no longer lose their corn in storage using our solution.
