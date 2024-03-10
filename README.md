@@ -40,3 +40,16 @@ There are numerous problems that were found by team 10, which affect society and
 
 <h3 align="center">Solution</h3>
 The solution defined by the group is to create a simulative prototype of a device that will constantly monitor temperature (and humidity with the temperature sensors (DHT11) and humidity with the Arduino Uno, where this data will be sent via API to a Node server running on Cloud, where data will travel to a Web platform where only our application client can have access and thus be able to make a definitive decision for their business
+
+<hr>
+
+<div align="center">
+  <img src="/doc-assets/icon/guardtech-logo.svg" height="70px"/>
+</div>
+<br>
+<div align="center">
+  <img src="/doc-assets/img/screenshot/full-website-prototype.png" />
+</div>
+<br>
+
+We chose the name GuardTech+ which references monitoring technology with the + signifying Plus, but also, in Portuguese representing the word "Mais", which in some countries is what corn is called, as in French, Spanish, Italian and other languages. We decided to use a simple logo representing corn, with a simple minimalist font and color with the slogan "Sempre Mais com você" ("Always more with you") with this pun suggesting that producers should no longer lose their corn in storage using our solution.
