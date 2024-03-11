@@ -1,0 +1,40 @@
+body {
+    margin: 0px;
+    padding: 0px;
+    font-family: sans-serif;
+    font-size: 16px;
+    margin: 20px;
+}
+
+/* Container principal */
+div {
+    justify-content: center;
+    border: 1px solid #ccc;
+    padding: 20px;
+    border-radius: 10px;
+}
+
+/* Inputs */
+input {
+    padding: 5px;
+    margin-bottom: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+/* Seletores */
+select {
+    padding: 5px;
+    margin-bottom: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+/* Botão */
+.botao {
+    background-color: #007bff;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
