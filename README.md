@@ -44,7 +44,7 @@ The solution defined by the group is to create a simulative prototype of a devic
 <hr>
 
 <div align="center">
-  <img src="/doc-assets/icon/guardtech-logo.svg" height="70px"/>
+  <img src="/doc-assets/icon/guardtech-logo-white.png" height="70px"/>
 </div>
 <br>
 <div align="center">
