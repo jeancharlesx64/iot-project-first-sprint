@@ -14,5 +14,5 @@ Only the listed members will be able to edit this file and confirm their presenc
 - [x] &nbsp;&nbsp; **Pedro Miguel**  &nbsp;&nbsp;&nbsp;- @spedro-miguel
 - [x] &nbsp;&nbsp; **Isaque Borges** &nbsp; - @IsaqueBorges01
 - [ ] &nbsp;&nbsp; **Isabella Matos**&nbsp;&nbsp;- @IsabellaMatos44801
-- [ ] &nbsp;&nbsp; **Marcelo Alves** &nbsp; - @171marcelo
+- [X] &nbsp;&nbsp; **Marcelo Alves** &nbsp; - @171marcelo
 - [x] &nbsp;&nbsp; **Kaique Sotero** &nbsp;&nbsp;-  @kaiquetozim
