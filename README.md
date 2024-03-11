@@ -39,7 +39,7 @@ Failure to properly manage temperature and humidity in corn storage can result i
 There are numerous problems that were found by team 10, which affect society and the general economy, as **10% of corn production** is lost due to lack of management due to corn production.
 
 <h3 align="center">Solution</h3>
-The solution defined by the group is to create a simulative prototype of a device that will constantly monitor temperature (and humidity with the temperature sensors (DHT11) and humidity with the Arduino Uno, where this data will be sent via API to a Node server running on Cloud, where data will travel to a Web platform where only our application client can have access and thus be able to make a definitive decision for their business
+The solution defined by the group is to create a simulative prototype of a device that will constantly monitor temperature and humidity sensor (DHT11, only one is needed to make both measurements) with the Arduino Uno, where this data will be sent via API to a Node server running on Cloud, where data will travel to a Web platform where only our application client can have access and thus be able to make a definitive decision for their business
 
 <hr>
 
