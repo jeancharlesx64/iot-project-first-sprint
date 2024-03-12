@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <B>
+        <h1>SIMULADOR FINANCEIRO</h1>
+    </B><br>
+</head>
+
+<body>
+    quantidade de sacas de milho pós colheita:
+    <input id="input_qtd_sacas_pos_colheita"><br>
+    insira o sua renda bruta por mês:
+    <input id="input_valor_bruto_liquido"><br>
+    <button onclick="calcular()">
+        SIMULADOR
+    </button>
+
+    <div id="resultado"></div>
+
+</body>
+
+</html>
+<script>
+    function calcular() {
+        var sacas = Number(input_qtd_sacas_pos_colheita.value)
+        var bruto = Number(input_valor_bruto_liquido.value)
+        var sacasaofinaldomes = sacas - (sacas * 0.10)
+        var valorliquidosemoprojeto =bruto * 0.10
+
+        resultado.innerHTML = `antes do armazenamento sua quantidade de sacas é <b>${sacas}</b> sacas<br> e ao final do armazenamento so restam
+        <b>${sacasaofinaldomes}</b> sacas, <br> e seu faturamento bruto sendo R$<b>${bruto}</b><br> ao final do mes com essas perdas no armazenamento
+        voce perde um valor de R$<b>${valorliquidosemoprojeto}</b> sem o nosso projeto`
+
+
+    }
+
+
+
+
+
+
+
+
+</script>
