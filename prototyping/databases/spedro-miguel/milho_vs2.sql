@@ -29,6 +29,14 @@ create table armazem(
     estado varchar(45)
 );
 
+create table sensor(
+	idSensor int primary key auto_increment,
+    nomeSensor varchar(40),
+    tipoSensor varchar(30),
+    statusSensor varchar(40) not null
+    constraint chkStatus check(statusSensor in ('ativado', 'desativado'))
+);
+
 create table registro(
 	idRegistro int primary key auto_increment,
     lm35_temperatura decimal(5,2),
@@ -51,6 +59,10 @@ insert into armazem (descricao, cep, logradouro, numero, bairro, cidade, estado)
 ('Armazem do tipo graneleiro, possui uma boa capacidade de armazenamento, onde o milho será mantido por um período intermediário, onde será instalado os sensores para monitoramento de temperatura e umidade', '01287-856', 'Rua Conceição Paulista', '15', 'Ondina', 'Salvador', 'BA'),
 ('Armazem do tipo ensacamento, ideal para pequenas quantidades de grãos, onde o milho será mantido por um curto período', '06432-081', 'Rua Cachoeira Alta', '2', 'Neva', 'Cascavel', 'PR');
 
+insert into sensor (nomeSensor, Tiposensor, statusSensor) values
+('lm35', 'Sensor de temperatura', 'ativado'),
+('dht11', 'Sensor de umidade', 'desativado');
+
 insert into registro (lm35_temperatura, dht11_umidade, dataHoraReg) values
 (14.40, 12.30, '2024-03-22 10:38:50'),
 (13.34, 13.09, '2024-03-22 10:39:56'),
@@ -59,16 +71,21 @@ insert into registro (lm35_temperatura, dht11_umidade, dataHoraReg) values
 select * from cliente;
 select * from armazem;
 select * from registro;
+select * from sensor;
 
 select * from cliente where nome like '%s';
 select * from armazem where descricao like '%silo%';
 select * from registro where dataHoraReg like '%3_';
+select * from sensor where tipoSensor like '_e%';
 
 update cliente set complemento = 'Bloco 5 AP 21' where idCliente = 2;
 select complemento from cliente where idCliente = 2;
 
 update armazem set numero = '22' where idArmazem = 3;
 select numero from armazem where idArmazem = 3;
+
+update sensor set statusSensor = 'ativado' where idSensor = 2;
+select statusSensor from sensor where idSensor = 2;
 
 update registro set lm35_temperatura = 11.76 where idRegistro = 1;
 select lm35_temperatura from registro where idRegistro = 1;
@@ -97,6 +114,10 @@ drop table cliente;
 truncate table armazem;
 select * from armazem;
 drop table armazem;
+
+truncate table sensor;
+select * from sensor;
+drop table sensor;
 
 truncate registro;
 select * from registro;
