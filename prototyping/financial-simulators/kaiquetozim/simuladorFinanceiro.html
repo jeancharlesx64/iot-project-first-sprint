@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+    Quantidade de milho em (kg) armazenada <br>
+    <input type="number" placeholder="0kg" id="input_qtdMilho">
+    <br>
+    Selecione o Estado desejado<br> 
+    <select id="estado">
+        <option value="MG">Minas Gerais</option>
+        <option value="MT">Mato Grosso</option>
+        <option value="MS">Mato Grosso Do Sul</option>
+        <option value="GO">Goiás</option>
+        <option value="PR">Paraná</option>
+        <option value="SP">São Paulo </option>
+               
+    </select>
+
+    <button onclick="perdas()">
+        Calcular Perdas
+    </button>
+
+</body>
+</html>
+
+    <script>
+        function perdas() {
+
+            var Minas = MG.value
+            var MatoGrosso = MT.value
+            var MatoGrossoSul = MS.value
+            var Paraná = PR.value
+            var SaoPaulo = SP.value
+            var Goias = GO.value
+
+            var precosp = 1.28 //perda 8%
+            var precomg = 1.50 //perda 10%
+            var precoMt = 1.40 //perda 7%
+            var precoms = 1.34  //perda 15%
+            var precoGoias = 1.35//perda 10%
+            var precoparana = 1.36//perda 20%
+
+            
+            
+
+
+
+
+
+        }
+    </script>
