@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GuardTech+ | Simulador de Produtividade</title>
+    <link rel="stylesheet" href="./assets/css/index.style.css">
+    <link rel="stylesheet" href="./assets/css/global.style.css">
+    <script src="./assets/js/index.script.js" defer></script>
+</head>
+<body>
+    <header>
+        <div class="header-border"></div>
+        <div class="header-wrap">
+            <div class="logo-container">
+                <a href="#">
+                    <img src="./assets/icon/guardtech-logo.svg" draggable="false"/>
+                </a>
+            </div>
+            <div class="upper-nav">
+                
+            </div>
+        </div>
+    </header>
+    <article>
+
+    </article>
+    <nav class="nav-bar">
+        <ul class="nav-list">
+            <li class="nav-items"><a href="#" class="nav-link on">Home</a></li>
+            <li class="nav-items"><a href="#" class="nav-link">Sobre nós</a></li>
+            <li class="nav-items"><a href="#" class="nav-link">Serviços</a></li>
+            <li class="nav-items"><a href="#" class="nav-link">Solução</a></li>
+            <li class="nav-items"><a href="#" class="nav-link">Financiamento</a></li>
+            <li class="nav-items"><a href="#" class="nav-link">Contato</a></li>
+        </ul>
+    </nav>
+    <main>
+        <div class="card-container">
+            <h1 class="calculator-title">Produtividade do Milho (sa/ha)</h1>
+            <form>
+                <label>Quantos hectares de terra você possui?</label>
+                <input type="number" id="txt_qtdHectare">
+                <br>
+                <label>Quantidade média de plantas por m²:</label>
+                <input type="number" id="txt_qtdPlantaMq">
+                <br>
+                <label>Quantidade média de espigas por planta:</label>
+                <input type="Number" id="txt_qtdEspigaPlanta">
+                <br>
+                <label>Peso médio das espigas em gramas:</label>
+                <input type="number" id="txt_pesoEspiga">
+                <br>
+                <label>Qual a umidade dos grãos em armazenamento?</label>
+                <input type="number" id="txt_qtdUmidadePercentual">
+                <br>
+                <button type="button" id="btn_produtividade">Ver produtividade</button>
+            </form>
+        </div>
+    </main>
+    <section class="response-container">
+
+    </section>
+    <footer class="footer-container">
+        <!-- empty -->
+    </footer>
+</body>
+</html>
