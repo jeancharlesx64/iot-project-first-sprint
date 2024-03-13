@@ -169,3 +169,46 @@ main{
 .btn-calculator:hover{
     background-color: #3b8d38;
 }
+
+/* ================== data analysis ============== */
+
+
+
+/* ================= modal =============  */
+.modal-loader {
+    display: none; 
+    position: fixed;
+    z-index: 1;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgb(0,0,0);
+    background-color: rgba(0,0,0,0.4);
+}
+.modal-content-loader {
+    background-color: transparent;
+    margin: 250px auto;
+    border: 1px solid #888;
+    width: 200px;
+    height: 100px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+/*  css portal loader https://www.cssportal.com/css-loader-generator/ */
+.custom-loader {
+    width: 35px;
+    height: 35px;
+    border-radius: 50%;
+    background: 
+      radial-gradient(farthest-side,#27e643 94%,#0000) top/8px 8px no-repeat,
+      conic-gradient(#0000 30%,#27e643);
+    -webkit-mask: radial-gradient(farthest-side,#0000 calc(100% - 8px),#000 0);
+    animation:s3 1s infinite linear;
+}
+  
+@keyframes s3{ 
+    100%{transform: rotate(1turn)}
+}

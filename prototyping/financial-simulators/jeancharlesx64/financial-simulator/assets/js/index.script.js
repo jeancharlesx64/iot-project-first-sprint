@@ -7,9 +7,10 @@ btnProductivity.addEventListener('click', function(){ // listening the "click" e
     var cobAmount = Number(document.querySelector('#txt_qtdEspigaPlanta').value) // how many cobs by plants?
     var cobWeightG = Number(document.querySelector('#txt_pesoEspiga').value); // which is the average weight of each cobs?
     var humidityPercentage = Number(document.querySelector('#txt_qtdUmidadePercentual').value); // which is the humidty percentage of storage
+    var celciusDegree = Number(document.querySelector('#txt_temperaturaCelcius').value); // capturing the temeperature (celcius)
 
     //dont allow the empty inputs
-    if(amountHectare != '' || plantAmountSq != '' || cobAmount != '' || cobWeightG != '' || humidityPercentage != ''){
+    if(amountHectare != '' && plantAmountSq != '' && cobAmount != '' && cobWeightG != '' && humidityPercentage != '' && celciusDegree != ''){
         var plantAmountHectare = plantAmountSq * 10000; // converting plants by square meters to plants by hectare
         var cobWeightKg = cobWeightG/1000; // converting cob weight in grams to kilograms
 
@@ -19,7 +20,15 @@ btnProductivity.addEventListener('click', function(){ // listening the "click" e
  
         var realProductivityPerBag = realProductivity / 60; // discovering productivity per 60kg bagssc ha-1
 
-        alert(realProductivity);
+        var modalLoader = document.querySelector('.modal-loader');
+        modalLoader.style.display = 'block';
+
+          // simulating the loader process
+        setTimeout(function() {
+            modalLoader.style.display = 'none'; // closing modal
+        }, 1500); // 3 seconds
+
+
     }else{
         alert('Há campos vazios. Preencha todos para calcular!');
     }
