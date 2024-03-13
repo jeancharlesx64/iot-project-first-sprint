@@ -44,6 +44,7 @@
            var reducaoRegiao = 0
            var precoRegiao = 0
            var lucroRegiao = 0
+           var porcentagemperda = 0
 
 
             if(estado == "São Paulo" ) {
@@ -52,6 +53,9 @@
 
                 var valorkgS = milhokg * precosp
                 valorRegiao = valorkgS
+
+                var PerdaporcentualSP = 8
+                porcentagemperda = PerdaporcentualSP
 
                 var perdaSP = valorkgS * 0.08
                 perdaRegiao = perdaSP
@@ -71,7 +75,10 @@
                 var valorkgMG = milhokg * precomg
                 valorRegiao = valorkgMG
 
-                var perdaMinas = valorkgMG * 0.10 
+                var PerdaporcentualMG = 10
+                porcentagemperda = PerdaporcentualMG
+
+                var perdaMinas = valorkgMG * 0.10
                 perdaRegiao = perdaMinas
 
                 var lucroMinas = valorkgMG - perdaMinas
@@ -87,6 +94,9 @@
 
                 var valorkgMT= milhokg * precoMt
                 valorRegiao = valorkgMT
+
+                var PerdaporcentualMT = 7
+                porcentagemperda = PerdaporcentualMT
                 
                 var perdaMT = valorkgMT * 0.07
                 perdaRegiao = perdaMT
@@ -103,6 +113,9 @@
 
                 var valorkgMS = milhokg * precoms
                 valorRegiao = valorkgMS
+
+                var PerdaporcentualMS = 15
+                porcentagemperda = PerdaporcentualMS
 
                 var perdaMS = valorkgMS * 0.15
                 perdaRegiao = perdaMS
@@ -121,6 +134,9 @@
                 var valorkgG = milhokg * precoGoias
                 valorRegiao = valorkgG
 
+                var PerdaporcentualGO = 10
+                porcentagemperda = PerdaporcentualGO
+
                 var perdaGO = valorkg * 0.10
                 perdaRegiao = perdaGO
 
@@ -137,6 +153,9 @@
                 var valorkgP = milhokg * precoparana
                 valorRegiao = valorkgP
 
+                var PerdaporcentualPR= 20
+                porcentagemperda = PerdaporcentualPR
+
                 var perdaPA = valorkgP * 0.20
                 perdaRegiao = perdaPA
 
@@ -149,8 +168,8 @@
 
 
             exibir.innerHTML = `
-            No Estado de ${estado} o preço do milho por kg está R$${precoRegiao}, ou seja, ao vender ${milhokg}kg de milho você irá obter R$${valorRegiao}, tendo uma perda na produção de
-            R$${perdaRegiao} , resultando em apenas R$${lucroRegiao} de lucro. Com o nosso projeto você terá um lucro de R$${reducaoRegiao} `
+            No Estado de ${estado} o preço do milho por kg está R$${precoRegiao}, ou seja, vendendo ${milhokg}kg você poderá obter R$${valorRegiao},
+            porém terá uma perda estimada na produção de milho de ${porcentagemperda}% correspondendo à R$${perdaRegiao} perdidos, totalizando apenas R$${lucroRegiao} de lucro. Com o nosso projeto você terá um lucro de R$${reducaoRegiao} `
            
 
         }
