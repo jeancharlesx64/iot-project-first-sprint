@@ -97,6 +97,10 @@ alter table armazem add column tipo varchar(30);
 desc armazem;
 alter table armazem drop column tipo;
 
+alter table sensor add column qtdSensor int;
+desc sensor;
+alter table sensor drop column qtdSensor;
+
 alter table registro rename column dataHoraReg to dataHora;
 desc registro;
 
