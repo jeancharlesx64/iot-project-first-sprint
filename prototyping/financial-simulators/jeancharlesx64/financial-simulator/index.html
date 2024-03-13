@@ -37,24 +37,40 @@
     </nav>
     <main>
         <div class="card-container">
-            <h1 class="calculator-title">Produtividade do Milho (sa/ha)</h1>
+            <h1 class="calculator-title">Produtividade do Milho <span>(sa/ha-1)</span></h1>
             <form>
-                <label>Quantos hectares de terra você possui?</label>
-                <input type="number" id="txt_qtdHectare">
-                <br>
-                <label>Quantidade média de plantas por m²:</label>
-                <input type="number" id="txt_qtdPlantaMq">
-                <br>
-                <label>Quantidade média de espigas por planta:</label>
-                <input type="Number" id="txt_qtdEspigaPlanta">
-                <br>
-                <label>Peso médio das espigas em gramas:</label>
-                <input type="number" id="txt_pesoEspiga">
-                <br>
-                <label>Qual a umidade dos grãos em armazenamento?</label>
-                <input type="number" id="txt_qtdUmidadePercentual">
-                <br>
-                <button type="button" id="btn_produtividade">Ver produtividade</button>
+                <div class="row  input-row">
+                    <div class="col input-col">
+                        <label class="lbl-question">Hectares totais:</label>
+                        <input type="number" id="txt_qtdHectare" class="input-question">
+                    </div>
+                    <div class="col input-col">
+                        <label class="lbl-question">Plantas por m²(média):</label>
+                        <input type="number" id="txt_qtdPlantaMq" class="input-question">
+                    </div>
+                </div>
+                <div class="row input-row">
+                    <div class="col input-col">
+                        <label class="lbl-question">Espigas por planta(média):</label>
+                        <input type="Number" id="txt_qtdEspigaPlanta" class="input-question">
+                    </div>
+                    <div class="col input-col">
+                        <label class="lbl-question">Peso das Espigas(média):</label>
+                        <input type="number" id="txt_pesoEspiga" class="input-question">
+                    </div>
+                </div>
+                <div class="row input-row">
+                    <div class="col input-col">
+                        <label class="lbl-question">Umidade dos grãos (%):</label>
+                        <input type="number" id="txt_qtdUmidadePercentual" class="input-question">
+                    </div>
+                    <div class="col input-col">
+                        <label class="lbl-question">Temperatura dos grãos (C°):</label>
+                        <input type="number" id="txt_qtdUmidadePercentual" class="input-question">
+                    </div>
+                </div>
+
+                <button type="button" id="btn_produtividade" class="btn-default btn-calculator">CALCULAR PRODUTIVIDADE</button>
             </form>
         </div>
     </main>
