@@ -100,7 +100,7 @@ main{
     box-shadow: -5px 5px 15px rgba(0, 0, 0, 0.103);
 }
 .response-container{
-    height: 280px; /* 280 smaller, then 800 */ 
+    height: 800px; /* 280 smaller, then 800 */ 
     width: 100%;
     background-color: #eeeeee;
     padding-top: 20px;
@@ -133,11 +133,17 @@ main{
 .data-analysis{
     background-color: white;
     width: 1000px;
+    height: 700px; /* 0 */
     margin: 20px auto;
     border-radius: 10px;
     box-shadow: -5px 5px 15px rgba(0, 0, 0, 0.103);
+    padding-top: 20px;
 }
 
+.analysis-title{
+    text-align: center;
+    font-family: 'Poppins', Arial, Helvetica, sans-serif;
+}
 
 /* =================== foooter style =================  */
 
@@ -220,9 +226,7 @@ main{
     background-color: rgba(0,0,0,0.4);
 }
 .modal-content-loader {
-    background-color: transparent;
     margin: 250px auto;
-    border: 1px solid #888;
     width: 200px;
     height: 100px;
     display: flex;

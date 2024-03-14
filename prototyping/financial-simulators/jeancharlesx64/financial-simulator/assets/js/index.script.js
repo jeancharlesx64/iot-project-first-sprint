@@ -34,6 +34,8 @@ btnProductivity.addEventListener('click', function(){ // listening the "click" e
             modalLoader.style.display = 'none'; // closing modal
         }, 1500); // 3 seconds
 
+        dataAnalysisResponse.innerHTML = `
+        `
         
     }else{
         alert('Há campos vazios. Preencha todos para calcular!');
