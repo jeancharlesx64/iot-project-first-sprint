@@ -123,9 +123,11 @@ main{
     font-family: 'poppins', sans-serif;
     text-align: center;
     font-size: 16px;
+    padding: 0 30px 0 30px;
 }
 .response-subtext span{
     color: green;
+    
 }
 
 .data-analysis{
