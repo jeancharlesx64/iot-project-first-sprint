@@ -73,8 +73,9 @@ article::after {
     color: #868686;
     transition: 0.3s;
 }
-.nav-link.on{
+.on{
     color: black;
+    font-weight: 800;
 }
 .nav-link:hover{
     color: black;
@@ -99,9 +100,40 @@ main{
     box-shadow: -5px 5px 15px rgba(0, 0, 0, 0.103);
 }
 .response-container{
-    height: 500px;
+    height: 280px; /* 280 smaller, then 800 */ 
     width: 100%;
-    background-color: #FFF;
+    background-color: #eeeeee;
+    padding-top: 20px;
+}
+
+.response-subtitle{
+    font-family: "Covered By Your Grace", cursive;
+    color: rgba(221, 181, 0, 0.993);
+    font-weight: 100;
+    text-align: center;
+    margin-bottom: 5px;
+
+}
+.response-title{
+    font-family: 'poppins', sans-serif;
+    text-align: center;
+    margin-bottom: 10px;
+}
+.response-subtext{
+    font-family: 'poppins', sans-serif;
+    text-align: center;
+    font-size: 16px;
+}
+.response-subtext span{
+    color: green;
+}
+
+.data-analysis{
+    background-color: white;
+    width: 1000px;
+    margin: 20px auto;
+    border-radius: 10px;
+    box-shadow: -5px 5px 15px rgba(0, 0, 0, 0.103);
 }
 
 
@@ -169,8 +201,6 @@ main{
 .btn-calculator:hover{
     background-color: #3b8d38;
 }
-
-/* ================== data analysis ============== */
 
 
 

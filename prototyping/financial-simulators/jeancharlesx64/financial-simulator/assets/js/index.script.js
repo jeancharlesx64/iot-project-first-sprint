@@ -23,6 +23,12 @@ btnProductivity.addEventListener('click', function(){ // listening the "click" e
         var modalLoader = document.querySelector('.modal-loader');
         modalLoader.style.display = 'block';
 
+        var responseContainer = document.querySelector('.response-container')
+        var dataAnalysisResponse = document.querySelector('.data-analysis');
+
+        responseContainer.style.height = '800px';
+        dataAnalysisResponse.style.height = '500px';
+
           // simulating the loader process
         setTimeout(function() {
             modalLoader.style.display = 'none'; // closing modal
