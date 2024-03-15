@@ -1,0 +1,51 @@
+body {
+    font-family: Arial, sans-serif; /* Define a fonte padrão para o documento */
+    background-color: #f0f0f0; /* Define a cor de fundo para o corpo da página */
+    margin: 0; /* Remove as margens padrão do corpo da página */
+    padding: 0; /* Remove o preenchimento padrão do corpo da página */
+}
+
+div {
+    background-color: #fff; /* Define a cor de fundo para todas as divs */
+    width: 300px; /* Define a largura das divs */
+    margin: 50px auto; /* Define as margens superior e inferior das divs como 50px e as laterais como automático (centralizado) */
+    padding: 20px; /* Define o preenchimento interno das divs */
+    border-radius: 10px; /* Define o raio da borda das divs */
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); /* Adiciona uma sombra à caixa das divs */
+}
+
+input,
+select,
+button {
+    display: block; /* Define os elementos input, select e button como blocos (um abaixo do outro) */
+    margin: 10px auto; /* Define as margens superior e inferior como 10px e as laterais como automáticas (centralizadas) */
+}
+
+input,
+select {
+    width: 100%; /* Define a largura dos inputs e selects como 100% do contêiner pai */
+    padding: 10px; /* Define o preenchimento interno dos inputs e selects */
+    border: 1px solid #ccc; /* Define uma borda de 1px sólida com a cor cinza */
+    border-radius: 5px; /* Define o raio da borda dos inputs e selects */
+    box-sizing: border-box; /* Faz com que o preenchimento e a borda não aumentem a largura total dos inputs e selects */
+}
+
+button {
+    width: 100%; /* Define a largura dos botões como 100% do contêiner pai */
+    padding: 10px; /* Define o preenchimento interno dos botões */
+    border: none; /* Remove a borda dos botões */
+    border-radius: 5px; /* Define o raio da borda dos botões */
+    background-color: #279254; /* Define a cor de fundo dos botões */
+    color: #fff; /* Define a cor do texto dos botões */
+    cursor: pointer; /* Define o cursor do mouse como um ponteiro ao passar sobre os botões */
+    transition: background-color 0.3s ease; /* Adiciona uma transição suave para a mudança de cor de fundo dos botões */
+}
+
+button:hover {
+    background-color: #1a723f; /* Define a cor de fundo dos botões quando o mouse está sobre eles */
+}
+
+#exibir {
+    margin-top: 20px; /* Define a margem superior do elemento com ID "exibir" como 20px */
+    text-align: center; /* Centraliza o texto dentro do elemento com ID "exibir" */
+}
