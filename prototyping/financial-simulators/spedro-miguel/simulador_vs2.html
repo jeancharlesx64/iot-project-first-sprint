@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Simulador Financeiro</title>
-    <link rel="stylesheet" href="style_vs1.css">
+    <link rel="stylesheet" href="style_vs1.css"> <!-- fazendo o link com o arquivo css -->
 </head>
 
 <body>
@@ -15,8 +15,8 @@
             style="border-radius: 12px; text-align: center; height: 40px; width: 190px;"> <br> <br>
 
         Selecione o estado para o serviço <br> <br>
-        <select id="sel_estado" style="border-radius: 12px; height: 40px; width: 190px; text-align: center;">
-
+        <select id="sel_estado" style="border-radius: 12px; height: 40px; width: 190px; text-align: center;"> <!-- criando uma seleção com opções -->
+            <!-- criando as opções do select -->
             <option value="sp">São Paulo</option>
             <option value="ms">Mato Grosso do Sul</option>
             <option value="pr">Paraná</option>
@@ -29,7 +29,7 @@
         </select>
         <br> <br>
         <button class="botao" onclick="calcular()" style="height: 30px; width: 150px; margin-top: 20px;">Calcular perdas</button> <br> <br>
-        <span id="exibir"></span>
+        <span id="exibir"></span> <!-- tag span com id para exibir com innerHTML -->
     </div>
     
 </body>
@@ -37,68 +37,70 @@
 </html>
 <script>
     function calcular() {
-        var quilo = Number(qtd_kg.value)
+        var quilo = Number(qtd_kg.value) // transformando o valor do input qtd_kg para número
         var estado = sel_estado.value
-        var mensagem = ''
+        var mensagem = '' // variável mensagem vazia
 
+        // faz uma verificação, caso seja verdade, entra no if. Senão faz uma nova verificação no else if, caso nenhum seja verdadeiro, entra no else
         if (estado == 'sp') {
 
-            var preco = quilo * 1.28
+            var preco = quilo * 1.28 // calcula o preço com base nos quilogramas
             mensagem = `<br>No estado de ${estado.toUpperCase()}, seu lucro com base no total de quilogramas, deveria ser R$${(preco).toFixed(2)}.<br><br>
             A estimativa de perda em ${estado.toUpperCase()} é de 8%, reduzindo seu lucro para R$${(preco * 0.92).toFixed(2)}.<br><br>
             Com o nosso serviço, você economizará aproximadamente R$${(preco * 0.08).toFixed(2)}.`
 
         } else if (estado == 'ms') {
 
-            var preco = quilo * 1.34
+            var preco = quilo * 1.34 // calcula o preço com base nos quilogramas
             mensagem = `<br>No estado de ${estado.toUpperCase()}, seu lucro com base no total de quilogramas, deveria ser R$${(preco).toFixed(2)}.<br><br>
             A estimativa de perda em ${estado.toUpperCase()} é de 15%, reduzindo seu lucro para R$${(preco * 0.85).toFixed(2)}.<br><br>
             Com o nosso serviço, você economizará aproximadamente R$${(preco * 0.15).toFixed(2)}.`
 
         } else if (estado == 'pr') {
 
-            var preco = quilo * 1.36
+            var preco = quilo * 1.36 // calcula o preço com base nos quilogramas
             mensagem = `<br>No estado de ${estado.toUpperCase()}, seu lucro com base no total de quilogramas, deveria ser R$${(preco.toFixed(2))}.<br><br>
             A estimativa de perda em ${estado.toUpperCase()} é de 20%, reduzindo seu lucro para R$${(preco * 0.80).toFixed(2)}.<br><br>
             Com o nosso serviço, você economizará aproximadamente R$${(preco * 0.20).toFixed(2)}.`
 
         } else if (estado == 'mt') {
 
-            var preco = quilo * 1.40
+            var preco = quilo * 1.40 // calcula o preço com base nos quilogramas
             mensagem = `<br>No estado de ${estado.toUpperCase()}, seu lucro com base no total de quilogramas, deveria ser R$${(preco).toFixed(2)}.<br><br>
             A estimativa de perda em ${estado.toUpperCase()} é de 7%, reduzindo seu lucro para R$${(preco * 0.93).toFixed(2)}.<br><br>
             Com o nosso serviço, você economizará aproximadamente R$${(preco * 0.07).toFixed(2)}.`
 
         } else if (estado == 'go') {
 
-            var preco = quilo * 1.35
+            var preco = quilo * 1.35 // calcula o preço com base nos quilogramas
             mensagem = `<br>No estado de ${estado.toUpperCase()}, seu lucro com base no total de quilogramas, deveria ser R$${(preco).toFixed(2)}.<br><br>
             A estimativa de perda em ${estado.toUpperCase()} é de 10%, reduzindo seu lucro para R$${(preco * 0.90).toFixed(2)}.<br><br>
             Com o nosso serviço, você economizará aproximadamente R$${(preco * 0.10).toFixed(2)}.`
 
         } else if (estado == 'rs') {
 
-            var preco = quilo * 1.30
+            var preco = quilo * 1.30 // calcula o preço com base nos quilogramas
             mensagem = `<br>No estado de ${estado.toUpperCase()}, seu lucro com base no total de quilogramas, deveria ser R$${(preco).toFixed(2)}.<br><br>
             A estimativa de perda em ${estado.toUpperCase()} é de 18%, reduzindo seu lucro para R$${(preco * 0.82).toFixed(2)}.<br><br>
             Com o nosso serviço, você economizará aproximadamente R$${(preco * 0.18).toFixed(2)}.`
 
         } else if (estado == 'mg') {
 
-            var preco = quilo * 1.50
+            var preco = quilo * 1.50 // calcula o preço com base nos quilogramas
             mensagem = `<br>No estado de ${estado.toUpperCase()}, seu lucro com base no total de quilogramas, deveria ser R$${(preco).toFixed(2)}.<br><br>
             A estimativa de perda em ${estado.toUpperCase()} é de 10%, reduzindo seu lucro para R$${(preco * 0.90).toFixed(2)}.<br><br>
             Com o nosso serviço, você economizará aproximadamente R$${(preco * 0.10).toFixed(2)}.`
 
         } else {
 
-            var preco = quilo * 1.32
+            var preco = quilo * 1.32 // calcula o preço com base nos quilogramas
             mensagem = `<br>No estado de ${estado.toUpperCase()}, seu lucro com base no total de quilogramas, deveria ser R$${(preco).toFixed(2)}.<br><br>
             A estimativa de perda em ${estado.toUpperCase()} é de 12%, reduzindo seu lucro para R$${(preco * 0.88).toFixed(2)}.<br><br>
             Com o nosso serviço, você economizará aproximadamente R$${(preco * 0.12).toFixed(2)}.`
 
         }
 
+        // exibe o conteúdo da variável mensagem.
         exibir.innerHTML = mensagem
     }
 </script>
