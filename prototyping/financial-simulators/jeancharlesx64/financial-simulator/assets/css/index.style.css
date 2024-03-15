@@ -73,8 +73,9 @@ article::after {
     color: #868686;
     transition: 0.3s;
 }
-.nav-link.on{
+.on{
     color: black;
+    font-weight: 800;
 }
 .nav-link:hover{
     color: black;
@@ -99,12 +100,133 @@ main{
     box-shadow: -5px 5px 15px rgba(0, 0, 0, 0.103);
 }
 .response-container{
-    height: 500px;
+    height: 250px; /* 280 smaller, then 800 */ 
     width: 100%;
-    background-color: #FFF;
+    background-color: #eeeeee;
+    padding-top: 20px;
 }
 
+.response-subtitle{
+    font-family: "Covered By Your Grace", cursive;
+    color: rgba(221, 181, 0, 0.993);
+    font-weight: 100;
+    text-align: center;
+    margin-bottom: 5px;
 
+}
+.response-title{
+    font-family: 'poppins', sans-serif;
+    text-align: center;
+    margin-bottom: 10px;
+}
+.response-subtext{
+    font-family: 'poppins', sans-serif;
+    text-align: center;
+    font-size: 16px;
+    padding: 0 30px 0 30px;
+}
+.response-subtext span{
+    color: green;
+    
+}
+
+.data-analysis{
+    background-color: white;
+    width: 1100px;
+    height: 0; /* 0 */
+    margin: 20px auto;
+    border-radius: 10px;
+    box-shadow: -5px 5px 15px rgba(0, 0, 0, 0.103);
+    padding: 25px;
+}
+
+.analysis-title{
+    text-align: center;
+    font-family: 'Poppins', Arial, Helvetica, sans-serif;
+    margin-bottom: 30px;
+    color: green;;
+}
+
+.data-row{
+    width: 100%;
+    height: 170px;
+    margin-bottom: 20px;
+    gap: 20px;
+}
+.data-col{
+    width: 33.3%;
+    align-items: center;
+    text-align: center;
+    border: 1px solid rgba(0, 0, 0, 0.151);
+    border-radius: 15px;
+    box-shadow: -5px 5px 5px rgba(0, 0, 0, 0.068);
+    padding: 10px;
+}
+.data-col-last{
+    width: 700px;
+    align-items: center;
+    text-align: center;
+    border: 1px solid rgba(0, 0, 0, 0.151);
+    border-radius: 15px;
+    box-shadow: -5px 5px 5px rgba(0, 0, 0, 0.068);
+    padding: 10px;
+}
+.data-row-last{
+    width: 100%;
+    height: 475px;
+    justify-content: center;
+}
+
+.data-info-title{
+    font-family: 'poppins', sans-serif;
+    font-size: 17px;
+}
+.data-info-text{
+    font-family: 'poppins', sans-serif;
+    font-size: 14px;
+}
+
+table {
+    width: 80%;
+    margin: 20px auto;
+    border-collapse: collapse;
+    border: 1px solid #ddd;
+    background-color: #fff;
+
+}
+th, td {
+    border: 1px solid #ddd;
+    padding: 8px;
+    text-align: left;
+}
+th{
+    background-color: rgba(52, 214, 52, 0.295);
+    text-align: center;
+    font-family: 'Poppins', Arial, Helvetica, sans-serif;
+    font-size: 15px;
+}
+th > img{
+    margin-top: 5px;
+}
+td{
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 15px;
+}
+.btn-know{
+    width: 130px;
+    height: 40px;
+    border: none;
+    background-color: #4BAF47;
+    color: white;
+    font-weight: bolder;
+    border-radius: 5px;
+    margin: 15px auto;
+    cursor: pointer;
+    transition: 0.3s;
+}
+.btn-know:hover{
+    background-color: #3b8d38;
+}
 /* =================== foooter style =================  */
 
 .footer-container{
@@ -168,4 +290,43 @@ main{
 }
 .btn-calculator:hover{
     background-color: #3b8d38;
+}
+
+
+
+/* ================= modal =============  */
+.modal-loader {
+    display: none; 
+    position: fixed;
+    z-index: 1;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgb(0,0,0);
+    background-color: rgba(0,0,0,0.4);
+}
+.modal-content-loader {
+    margin: 250px auto;
+    width: 200px;
+    height: 100px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+/*  css portal loader https://www.cssportal.com/css-loader-generator/ */
+.custom-loader {
+    width: 35px;
+    height: 35px;
+    border-radius: 50%;
+    background: 
+      radial-gradient(farthest-side,#27e643 94%,#0000) top/8px 8px no-repeat,
+      conic-gradient(#0000 30%,#27e643);
+    -webkit-mask: radial-gradient(farthest-side,#0000 calc(100% - 8px),#000 0);
+    animation:s3 1s infinite linear;
+}
+  
+@keyframes s3{ 
+    100%{transform: rotate(1turn)}
 }
