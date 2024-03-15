@@ -20,6 +20,7 @@ create table cliente ( -- criando tabela cliente
 create table armazem( -- criando tabela armazem
 	idArmazem int primary key auto_increment,
     tipo varchar(45),
+    capacidade varchar(45), -- capacidade máxima de armazenamento
     descricao varchar(300), -- descrição detalhada sobre o tipo de armazem e suas vantagens
     cep char(9),
     logradouro varchar(45),
@@ -34,6 +35,7 @@ create table sensor( -- criando tabela sensor
     nomeSensor varchar(40),
     tipoSensor varchar(30), -- tipo do sensor, umidade ou temperatura
     statusSensor varchar(40) not null, -- se o sensor está ativado ou desativado
+    constraint chkNomeSensor check(nomeSensor in ('lm35', 'dht11')), -- restrição para checar se o nome é lm35 ou dht11
     constraint chkStatus check(statusSensor in ('ativado', 'desativado')) -- restrição para checar se está ativado ou desativado
 );
 
@@ -54,10 +56,10 @@ insert into cliente (nome, email, senha, cpf, telefone, cep, logradouro, numero,
 ('Gerson', 'gerson26@yahoo.com', 'senha2', '132.465.367-23', '71 98237-7466', '01287-045', 'Rua Canções Prelúdios', '4', null, 'Ondina', 'Salvador', 'BA'),
 ('Jonas', 'jonas10@yahoo.com', 'senha3', '183.534.235-74', '41 98140-6134', '06432-081', 'Rua Cachoeira Alta', '2', 'Bloco 3 AP 01', 'Neva', 'Cascavel', 'PR');
 
-insert into armazem (tipo, descricao, cep, logradouro, numero, bairro, cidade, estado) values -- inserindo dados na tabela armazem
-('Silo', 'Armazem do tipo silo, tem grande capacidade de armazenamento, onde o milho será mantido por um longo período, onde será instalado os sensores para monitoramento de temperatura e umidade', '09469-341', 'Rua Antônio Nascimento', '3', 'Itaim Bibi', 'São Paulo', 'SP'),
-('Graneleiro', 'Armazem do tipo graneleiro, possui uma boa capacidade de armazenamento, onde o milho será mantido por um período intermediário, onde será instalado os sensores para monitoramento de temperatura e umidade', '01287-856', 'Rua Conceição Paulista', '15', 'Ondina', 'Salvador', 'BA'),
-('Ensacamento', 'Armazem do tipo ensacamento, ideal para pequenas quantidades de grãos, onde o milho será mantido por um curto período', '06432-081', 'Rua Cachoeira Alta', '2', 'Neva', 'Cascavel', 'PR');
+insert into armazem (tipo, capacidade, descricao, cep, logradouro, numero, bairro, cidade, estado) values -- inserindo dados na tabela armazem
+('Silo', '10 mil toneladas', 'Armazem do tipo silo, tem grande capacidade de armazenamento, onde o milho será mantido por um longo período, onde será instalado os sensores para monitoramento de temperatura e umidade', '09469-341', 'Rua Antônio Nascimento', '3', 'Itaim Bibi', 'São Paulo', 'SP'),
+('Graneleiro', '3 mil toneladas', 'Armazem do tipo graneleiro, possui uma boa capacidade de armazenamento, onde o milho será mantido por um período intermediário, onde será instalado os sensores para monitoramento de temperatura e umidade', '01287-856', 'Rua Conceição Paulista', '15', 'Ondina', 'Salvador', 'BA'),
+('Ensacamento', '900 toneladas', 'Armazem do tipo ensacamento, ideal para pequenas quantidades de grãos, onde o milho será mantido por um curto período', '06432-081', 'Rua Cachoeira Alta', '2', 'Neva', 'Cascavel', 'PR');
 
 insert into sensor (nomeSensor, Tiposensor, statusSensor) values -- inserindo dados na tabela sensor
 ('lm35', 'Sensor de temperatura', 'ativado'),
@@ -77,6 +79,12 @@ select * from cliente where nome like '%s'; -- exibir os dados da tabela cliente
 select * from armazem where descricao like '%silo%'; -- exibir os dados da tabela armazem onde tem a palavra 'silo' na descrição
 select * from registro where dataHoraReg like '%3_'; -- exibir os dados da tabela registro onde o penúltimo número é 3 da dataHoraReg
 select * from sensor where tipoSensor like '_e%'; -- exibir os dados da tabela sensor onde a segunda letra é 'e' do tipoSensor
+
+select nome from cliente order by nome; -- exibir a tupla nome da tabela cliente ordenado de forma crescente
+select tipo from armazem order by tipo desc; -- exibir a tupla tipo da tabela armazem ordenado de forma decrescente
+
+delete from registro where idRegistro = 3; -- deletando os dados da tabela registro onde o idRegistro é 3
+select * from registro;
 
 update cliente set complemento = 'Bloco 5 AP 21' where idCliente = 2; -- atualizando o complemento do cliente com idCliente 2
 select complemento from cliente where idCliente = 2; -- exibindo o complemento do cliente com idCliente 2
@@ -99,13 +107,6 @@ alter table sensor drop column qtdSensor; -- alterando a tabela sensor, excluind
 
 alter table registro rename column dataHoraReg to dataHora; -- alterando a tabela, renomeando a coluna para dataHora
 desc registro;
-
-insert into cliente (nome, email, senha, cpf) values
-('Fabio', 'fabio098@yahoo.com', 'senha4', '845624343-67');
-select * from cliente;
-
-delete from cliente where idCliente = 4; -- deletando o cliente com o idCliente 4
-select * from cliente;
 
 truncate table cliente; -- limpar a tabela cliente por completo
 select * from cliente;
