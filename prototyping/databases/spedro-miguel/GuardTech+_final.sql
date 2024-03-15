@@ -4,14 +4,14 @@ show tables;
 
 create table cliente (
 	idCliente int primary key auto_increment,
-	nome varchar(45),
-    email varchar(45) not null,
-    senha varchar(45) not null,
+    nome varchar(45),
+    email varchar(60) unique not null,
+    senha varchar(20) not null,
     cpf char(14) unique not null,
     telefone char(13),
     cep char(9),
     logradouro varchar(45),
-    numero varchar(45),
+    numero varchar(15),
     complemento varchar(45),
     bairro varchar(45),
     cidade varchar(45),
@@ -20,6 +20,7 @@ create table cliente (
 
 create table armazem(
 	idArmazem int primary key auto_increment,
+    tipo varchar(45),
     descricao varchar(300),
     cep char(9),
     logradouro varchar(45),
@@ -33,7 +34,7 @@ create table sensor(
 	idSensor int primary key auto_increment,
     nomeSensor varchar(40),
     tipoSensor varchar(30),
-    statusSensor varchar(40) not null
+    statusSensor varchar(40) not null,
     constraint chkStatus check(statusSensor in ('ativado', 'desativado'))
 );
 
@@ -54,10 +55,10 @@ insert into cliente (nome, email, senha, cpf, telefone, cep, logradouro, numero,
 ('Gerson', 'gerson26@yahoo.com', 'senha2', '132.465.367-23', '71 98237-7466', '01287-045', 'Rua Canções Prelúdios', '4', null, 'Ondina', 'Salvador', 'BA'),
 ('Jonas', 'jonas10@yahoo.com', 'senha3', '183.534.235-74', '41 98140-6134', '06432-081', 'Rua Cachoeira Alta', '2', 'Bloco 3 AP 01', 'Neva', 'Cascavel', 'PR');
 
-insert into armazem (descricao, cep, logradouro, numero, bairro, cidade, estado) values
-('Armazem do tipo silo, tem grande capacidade de armazenamento, onde o milho será mantido por um longo período, onde será instalado os sensores para monitoramento de temperatura e umidade', '09469-341', 'Rua Antônio Nascimento', '3', 'Itaim Bibi', 'São Paulo', 'SP'),
-('Armazem do tipo graneleiro, possui uma boa capacidade de armazenamento, onde o milho será mantido por um período intermediário, onde será instalado os sensores para monitoramento de temperatura e umidade', '01287-856', 'Rua Conceição Paulista', '15', 'Ondina', 'Salvador', 'BA'),
-('Armazem do tipo ensacamento, ideal para pequenas quantidades de grãos, onde o milho será mantido por um curto período', '06432-081', 'Rua Cachoeira Alta', '2', 'Neva', 'Cascavel', 'PR');
+insert into armazem (tipo, descricao, cep, logradouro, numero, bairro, cidade, estado) values
+('Silo', 'Armazem do tipo silo, tem grande capacidade de armazenamento, onde o milho será mantido por um longo período, onde será instalado os sensores para monitoramento de temperatura e umidade', '09469-341', 'Rua Antônio Nascimento', '3', 'Itaim Bibi', 'São Paulo', 'SP'),
+('Graneleiro', 'Armazem do tipo graneleiro, possui uma boa capacidade de armazenamento, onde o milho será mantido por um período intermediário, onde será instalado os sensores para monitoramento de temperatura e umidade', '01287-856', 'Rua Conceição Paulista', '15', 'Ondina', 'Salvador', 'BA'),
+('Ensacamento', 'Armazem do tipo ensacamento, ideal para pequenas quantidades de grãos, onde o milho será mantido por um curto período', '06432-081', 'Rua Cachoeira Alta', '2', 'Neva', 'Cascavel', 'PR');
 
 insert into sensor (nomeSensor, Tiposensor, statusSensor) values
 ('lm35', 'Sensor de temperatura', 'ativado'),
