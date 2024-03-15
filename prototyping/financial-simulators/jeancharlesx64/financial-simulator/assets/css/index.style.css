@@ -100,7 +100,7 @@ main{
     box-shadow: -5px 5px 15px rgba(0, 0, 0, 0.103);
 }
 .response-container{
-    height: 1450px; /* 280 smaller, then 800 */ 
+    height: 250px; /* 280 smaller, then 800 */ 
     width: 100%;
     background-color: #eeeeee;
     padding-top: 20px;
@@ -133,7 +133,7 @@ main{
 .data-analysis{
     background-color: white;
     width: 1100px;
-    height: 1180px; /* 0 */
+    height: 0; /* 0 */
     margin: 20px auto;
     border-radius: 10px;
     box-shadow: -5px 5px 15px rgba(0, 0, 0, 0.103);
