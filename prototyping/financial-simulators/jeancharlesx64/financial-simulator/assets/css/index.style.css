@@ -100,7 +100,7 @@ main{
     box-shadow: -5px 5px 15px rgba(0, 0, 0, 0.103);
 }
 .response-container{
-    height: 800px; /* 280 smaller, then 800 */ 
+    height: 1450px; /* 280 smaller, then 800 */ 
     width: 100%;
     background-color: #eeeeee;
     padding-top: 20px;
@@ -132,19 +132,101 @@ main{
 
 .data-analysis{
     background-color: white;
-    width: 1000px;
-    height: 700px; /* 0 */
+    width: 1100px;
+    height: 1180px; /* 0 */
     margin: 20px auto;
     border-radius: 10px;
     box-shadow: -5px 5px 15px rgba(0, 0, 0, 0.103);
-    padding-top: 20px;
+    padding: 25px;
 }
 
 .analysis-title{
     text-align: center;
     font-family: 'Poppins', Arial, Helvetica, sans-serif;
+    margin-bottom: 30px;
+    color: green;;
 }
 
+.data-row{
+    width: 100%;
+    height: 170px;
+    margin-bottom: 20px;
+    gap: 20px;
+}
+.data-col{
+    width: 33.3%;
+    align-items: center;
+    text-align: center;
+    border: 1px solid rgba(0, 0, 0, 0.151);
+    border-radius: 15px;
+    box-shadow: -5px 5px 5px rgba(0, 0, 0, 0.068);
+    padding: 10px;
+}
+.data-col-last{
+    width: 700px;
+    align-items: center;
+    text-align: center;
+    border: 1px solid rgba(0, 0, 0, 0.151);
+    border-radius: 15px;
+    box-shadow: -5px 5px 5px rgba(0, 0, 0, 0.068);
+    padding: 10px;
+}
+.data-row-last{
+    width: 100%;
+    height: 475px;
+    justify-content: center;
+}
+
+.data-info-title{
+    font-family: 'poppins', sans-serif;
+    font-size: 17px;
+}
+.data-info-text{
+    font-family: 'poppins', sans-serif;
+    font-size: 14px;
+}
+
+table {
+    width: 80%;
+    margin: 20px auto;
+    border-collapse: collapse;
+    border: 1px solid #ddd;
+    background-color: #fff;
+
+}
+th, td {
+    border: 1px solid #ddd;
+    padding: 8px;
+    text-align: left;
+}
+th{
+    background-color: rgba(52, 214, 52, 0.295);
+    text-align: center;
+    font-family: 'Poppins', Arial, Helvetica, sans-serif;
+    font-size: 15px;
+}
+th > img{
+    margin-top: 5px;
+}
+td{
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 15px;
+}
+.btn-know{
+    width: 130px;
+    height: 40px;
+    border: none;
+    background-color: #4BAF47;
+    color: white;
+    font-weight: bolder;
+    border-radius: 5px;
+    margin: 15px auto;
+    cursor: pointer;
+    transition: 0.3s;
+}
+.btn-know:hover{
+    background-color: #3b8d38;
+}
 /* =================== foooter style =================  */
 
 .footer-container{
