@@ -15,12 +15,12 @@ The Teams must have as requirements some "deliverables", these are tasks that mu
 
 #### 10th Group
 We are 10th group, a team made up of 6 members:
-- Jean Charles | [@jeancharlesx64](https://github.com/jeancharlesx64)
-- Pedro Miguel | [@spedro-miguel](https://github.com/spedro-miguel)
-- Isabella Matos | [@IsabellaMatos44801](https://github.com/IsabellaMatos44801)
-- Isaque Borges | [@IsaqueBorges01](https://github.com/IsaqueBorges01)
-- Kaique Sotero | [@kaiquetozim](https://github.com/kaiquetozim)
-- Marcelo Alves | [@171marcelo](https://github.com/171marcelo)
+- Jean Charles - [@jeancharlesx64](https://github.com/jeancharlesx64)
+- Pedro Miguel - [@spedro-miguel](https://github.com/spedro-miguel)
+- Isabella Matos - [@IsabellaMatos44801](https://github.com/IsabellaMatos44801)
+- Isaque Borges - [@IsaqueBorges01](https://github.com/IsaqueBorges01)
+- Kaique Sotero - [@kaiquetozim](https://github.com/kaiquetozim)
+- Marcelo Alves - [@171marcelo](https://github.com/171marcelo)
 
 <hr>
 
@@ -83,6 +83,13 @@ In terms of electronics, we will use these electronic components below, where th
 The DHT11 is a digital temperature and humidity sensor. It utilizes a capacitive humidity sensor and a thermistor to accurately measure environmental conditions. The sensor provides temperature readings in the range of 0 to 50 degrees Celsius with an accuracy of approximately ±2°C. Additionally, it measures humidity levels ranging from 20% to 90% with an accuracy of approximately ±5%.        </td>
     </tr>
 </table>
+
+<h4 align="center">Corporate website</h4>
+We chose the name **GuardTech+** which references monitoring technology with the + signifying Plus, but also, in Portuguese representing the word "Mais", which in some countries is what corn is called, as in French, Spanish, Italian and other languages. We decided to use a simple logo representing corn, with a simple minimalist font and color with the slogan "Sempre Mais com você" ("Always more with you") with this pun suggesting that producers should no longer lose their corn in storage using our solution.
+
+<br>
+<br>
+
 <div align="center">
   <img src="/doc-assets/icon/guardtech-logo-white.png" height="70px"/>
 </div>
@@ -92,4 +99,3 @@ The DHT11 is a digital temperature and humidity sensor. It utilizes a capacitive
 </div>
 <br>
 
-We chose the name **GuardTech+** which references monitoring technology with the + signifying Plus, but also, in Portuguese representing the word "Mais", which in some countries is what corn is called, as in French, Spanish, Italian and other languages. We decided to use a simple logo representing corn, with a simple minimalist font and color with the slogan "Sempre Mais com você" ("Always more with you") with this pun suggesting that producers should no longer lose their corn in storage using our solution.
