@@ -227,6 +227,15 @@ td{
 .btn-know:hover{
     background-color: #3b8d38;
 }
+
+.green-text{
+    color: #3b8d38;
+    font-weight: bolder;
+}
+.red-text{
+    font-weight: bolder;
+    color: #f12e2e;
+}
 /* =================== foooter style =================  */
 
 .footer-container{

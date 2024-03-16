@@ -67,19 +67,19 @@ btnProductivity.addEventListener('click', function(){ // listening the "click" e
                 <div class="col data-col">
                     <img width="48" height="48" src="https://img.icons8.com/fluency/48/bar-chart.png" alt="bar-chart"/>
                     <h2 class="data-info-title">Produtividade</h2>
-                    <p class="data-info-text">Total de ${realProductivity.toFixed(1)}kg/ha</p>
-                    <p class="data-info-text">O que se traduz para R$${(realProductivityPerBag * 54).toFixed(1)} reais</p>
+                    <p class="data-info-text">Total de <b>${realProductivity.toFixed(1)}kg/ha</b></p>
+                    <p class="data-info-text">O que se traduz para <span class="green-text">R$${(realProductivityPerBag * 54).toFixed(1)} reais</span></p>
                 </div>
                 <div class="col data-col">
                     <img width="48" height="48" src="https://img.icons8.com/fluency/48/bearish.png" alt="bearish"/>   
                     <h2 class="data-info-title">Perdas</h2>
-                    <p class="data-info-text">Você está perdendo cerca de ${(potentialProductivity - realProductivity).toFixed(1)} kg/ha</p>
+                    <p class="data-info-text">Você está perdendo cerca de <span class="red-text">${(potentialProductivity - realProductivity).toFixed(1)} kg/ha</span></p>
                     <p class="data-info-text">Que pode ser resolvido de maneira simples e eficiente</p>
                 </div>
                 <div class="col data-col">
                     <img width="48" height="48" src="https://img.icons8.com/fluency/48/line-chart.png" alt="line-chart"/>                    
                     <h2 class="data-info-title">Produtor</h2>
-                    <p class="data-info-text">Você é um produtor ${producerStatus}(${realProductivityPerBag}sa)</p>
+                    <p class="data-info-text">Você é um produtor <b>${producerStatus}(${realProductivityPerBag}sa)</b></p>
                     <p class="data-info-text">em relação aos produtores do mercado média (105sa)</p>
                 </div>
             </div>
@@ -87,19 +87,19 @@ btnProductivity.addEventListener('click', function(){ // listening the "click" e
             <div class="row data-row">
                 <div class="col data-col">
                     <img width="48" height="48" src="https://img.icons8.com/fluency/48/stocks-growth--v1.png" alt="stocks-growth--v1"/>                    <h2 class="data-info-title">Potencial</h2>
-                    <p class="data-info-text">Potêncial de escala em até ${potentialProductivity.toFixed(1)}kg/ha</p>
-                    <p class="data-info-text">Podendo aumentar seus ganhos em ${potencialPercentage.toFixed(1)}%</p>
+                    <p class="data-info-text">Potêncial de escala em até <span class="green-text">${potentialProductivity.toFixed(1)}kg/ha</span></p>
+                    <p class="data-info-text">Podendo aumentar seus ganhos em <b>${potencialPercentage.toFixed(1)}%</b></p>
                 </div>
                 <div class="col data-col">
                     <img width="48" height="48" src="https://img.icons8.com/fluency/48/corn.png" alt="corn"/>
                     <h2 class="data-info-title">Qualidade</h2>
-                    <p class="data-info-text">Seu grão tem qualidade ${grainQuality}</p>
+                    <p class="data-info-text">Seu grão tem qualidade <b>${grainQuality}</b></p>
                     <p class="data-info-text">${grainQualitySentence}</p>
                 </div>
                 <div class="col data-col">
                     <img width="48" height="48" src="https://img.icons8.com/fluency/48/delete-dollar.png" alt="delete-dollar"/>
                     <h2 class="data-info-title">Lucratividade</h2>
-                    <p class="data-info-text">Você esta deixando de ganhar cerca de RS${(potencialMoney * amountHectare).toFixed(2)} reais, de toda sua plantação</p>
+                    <p class="data-info-text">Você esta deixando de ganhar cerca de <span class="red-text">RS${(potencialMoney * amountHectare).toFixed(2)} reais</span>, de toda sua plantação</p>
                 </div>
             </div>
             <div class="row data-row-last">
@@ -112,45 +112,45 @@ btnProductivity.addEventListener('click', function(){ // listening the "click" e
                     <table>
                         <tr>
                             <th>Estado</th>
-                            <th>Valor p/ kg</th>
+                            <th>Valor p/60kg</th>
                             <th><img width="25" height="25" src="https://img.icons8.com/fluency/48/cancel.png" alt="cancel"/></th>
                             <th><img width="25" height="25" src="https://img.icons8.com/fluency/48/ok--v1.png" alt="ok--v1"/></th>
                         </tr>
                         <tr>
                             <td>São Paulo</td>
                             <td>R$64.00</td>
-                            <td>R$${(realProductivityPerBag * 64).toFixed(2)} p/ha</td>
-                            <td>R$${(potencialProductivityPerBag * 64).toFixed(2)}p/ha</td>
+                            <td><span class="red-text">R$${(realProductivityPerBag * 64).toFixed(2)} p/ha</span></td>
+                            <td><span class="green-text">R$${(potencialProductivityPerBag * 64).toFixed(2)}p/ha</span></td>
                         </tr>
                         <tr>
                             <td>Mato Grosso</td>
                             <td>R$47.90</td>
-                            <td>R$${(realProductivityPerBag * 47.90).toFixed(2)}p/ha</td>
-                            <td>R$${(potencialProductivityPerBag * 47.90).toFixed(2)}p/ha</td>
+                            <td><span class="red-text">R$${(realProductivityPerBag * 47.90).toFixed(2)}p/ha</span></td>
+                            <td><span class="green-text">R$${(potencialProductivityPerBag * 47.90).toFixed(2)}p/ha</span></td>
                         </tr>
                         <tr>
                             <td>Paraná</td>
                             <td>R$55.10</td>
-                            <td>R$${(realProductivityPerBag * 55.10).toFixed(2)}p/ha</td>
-                            <td>R$${(potencialProductivityPerBag * 55.10).toFixed(2)}p/ha</td>
+                            <td><span class="red-text">R$${(realProductivityPerBag * 55.10).toFixed(2)}p/ha</span></td>
+                            <td><span class="green-text">R$${(potencialProductivityPerBag * 55.10).toFixed(2)}p/ha</span></td>
                         </tr>
                         <tr>
                             <td>Goiás</td>
                             <td>R$53.00</td>
-                            <td>R$${(realProductivityPerBag * 53).toFixed(2)}p/ha</td>
-                            <td>R$${(potencialProductivityPerBag * 53).toFixed(2)}p/ha</td>
+                            <td><span class="red-text">R$${(realProductivityPerBag * 53).toFixed(2)}p/ha</span></td>
+                            <td><span class="green-text">R$${(potencialProductivityPerBag * 53).toFixed(2)}p/ha</span></td>
                         </tr>
                         <tr>
                             <td>Rio Grande do Sul</td>
                             <td>R$50.00</td>
-                            <td>R$${(realProductivityPerBag * 50).toFixed(2)}p/ha</td>
-                            <td>R$${(potencialProductivityPerBag * 50).toFixed(2)}p/ha</td>
+                            <td><span class="red-text">R$${(realProductivityPerBag * 50).toFixed(2)}p/ha</span></td>
+                            <td><span class="green-text">R$${(potencialProductivityPerBag * 50).toFixed(2)}p/ha</span></td>
                         </tr>
                         <tr>
                             <td>Média (Brasil)</td>
                             <td>R$54</td>
-                            <td>R$${(realProductivityPerBag * 54).toFixed(2)}p/ha</td>
-                            <td>R$${(potencialProductivityPerBag * 54).toFixed(2)}p/ha</td>
+                            <td><span class="red-text">R$${(realProductivityPerBag * 54).toFixed(2)}p/ha</span></td>
+                            <td><span class="green-text">R$${(potencialProductivityPerBag * 54).toFixed(2)}p/ha</span></td>
                         </tr>
                     </table>
                 </div>
