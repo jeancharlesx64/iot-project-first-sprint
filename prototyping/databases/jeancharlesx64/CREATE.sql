@@ -1,4 +1,6 @@
 -- =================================================== --
+-- =                 *CREATE TABLES*                 = --
+-- =================================================== --
 -- =  Dados referente a GuardTech -> Cliente|Empresa = --
 -- =================================================== --
 
@@ -40,7 +42,7 @@ CREATE TABLE tbPhoneCompany(
 );
 
 -- responsável de quem estaria se apresentando como empresa, o cliente referente (caramico)
-CREATE TABLE responsible(
+CREATE TABLE tbResponsible(
 	idResponsible INT PRIMARY KEY AUTO_INCREMENT NOT NULL,
     nameResponsible VARCHAR(45),
     cpfResponsible CHAR(11),
@@ -54,9 +56,9 @@ CREATE TABLE responsible(
 -- dados do contrato feito entre a empresa/cliente e a nossa empresa
 CREATE TABLE tbContract(
 	idContract INT PRIMARY KEY AUTO_INCREMENT NOT NULL,
-    startDateContract DATE NOT NULL, -- data inicial do contrato feito pela empresa e guardtech
-    dueDateContract DATE NOT NULL, -- data de vencimento do contrato
-    valueContract DECIMAL(9,2) NOT NULL, -- valor do contrato, valor pra cumprimento da entrega do serviço-produto
+    startDateContract DATE , -- data inicial do contrato feito pela empresa e guardtech
+    dueDateContract DATE , -- data de vencimento do contrato
+    valueContract DECIMAL(9,2) , -- valor do contrato, valor pra cumprimento da entrega do serviço-produto
     statusValueContract VARCHAR(12) -- status se esta "pago", "pendente", "atrasado"
 	-- fk empresa => referenciar que este contrato foi feito com a tal empresa
 );
@@ -67,7 +69,7 @@ CREATE TABLE tbContract(
 
 -- usuários da aplicação (uma empresa, poderia registrar varios usuários para administrar o sistema deles,
 -- acesso ao dashboard, controle de login
-CREATE TABLE user(
+CREATE TABLE tbUser(
 	idUser INT PRIMARY KEY AUTO_INCREMENT NOT NULL,
     nameUser VARCHAR(20),
     passwordUser VARCHAR(255),
@@ -76,7 +78,7 @@ CREATE TABLE user(
 );
 
 -- armazém, o local onde seria implantado o sensor
-CREATE TABLE cornStorage(
+CREATE TABLE tbCornStorage(
 	idCornStorage INT PRIMARY KEY AUTO_INCREMENT NOT NULL,
     typeCornStorage VARCHAR(100), -- tipos de armazém, silos, graneleiro, granel, silobags etc
     volumeCornStorage INT, --  capacidade em volume metros cúbicos
@@ -86,7 +88,7 @@ CREATE TABLE cornStorage(
 );
 
 -- dados do dispositivo sensor
-CREATE TABLE sensorDevice(
+CREATE TABLE tbSensorDevice(
 	idSensorDevice INT PRIMARY KEY AUTO_INCREMENT NOT NULL,
     typeSensorDevice VARCHAR(5), -- tipo do sensor "DHT11" "LM35"
     statusSensorDevice VARCHAR(10) -- verificação se o sensor esta ativado ou desativado
@@ -95,10 +97,40 @@ CREATE TABLE sensorDevice(
 
 -- registros do sensor sendo enviados e registrados
 -- caso o sensor é do tipo DHT11 o LM35 recebe null, e assim por diante
-CREATE TABLE sensorDeviceLog(
+CREATE TABLE tbSensorDeviceLog(
 	idSensorDeviceLog INT PRIMARY KEY AUTO_INCREMENT NOT NULL,
     lm35DataDeviceLog decimal(4,1), -- dados recebidos se for LM35
     dht11DataDeviceLog decimal(3,1), -- dados recebidos se for DHT11
     dateHourDeviceLog DATETIME -- data e hora do registro
     -- fk sensor => referenciar que esses registro do sensor é de "qual sensor?"
 );
+
+-- ===================================================== --
+-- =    Fortalecendo regras de negócio, ALTER TABLE    = --
+-- ===================================================== --
+
+-- verificando o porte da empresa
+ALTER TABLE tbCompany
+ADD CONSTRAINT chkSizeCompany CHECK(
+	sizeCompany IN('micro','pequeno','médio','grande')
+);
+
+-- verificando o tipo de telefone
+ALTER TABLE tbPhoneCompany 
+ADD CONSTRAINT chkTypePhoneCompany CHECK(
+	typePhoneCompany IN('Residêncial','Comercial','Pessoal')
+);
+
+-- verificando o status do valor do contrato, se está pago, pendente, atrasado, ou cancelado
+ALTER TABLE tbContract
+ADD CONSTRAINT chkStatusContract CHECK(
+	statusValueContract IN('pago','pendente','atrasado','cancelado')
+);
+
+
+-- verificar o tipo do armazenamento, silos, granel etc
+ALTER TABLE tbCornStorage
+ADD CONSTRAINT chkTypeCornStorage CHECK(
+	typeCornStorage IN ('Silo','Graneleiro','Convencional', 'Bolsa')
+);
+
