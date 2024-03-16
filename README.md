@@ -39,10 +39,50 @@ Failure to properly manage temperature and humidity in corn storage can result i
 There are numerous problems that were found by team 10, which affect society and the general economy, as **10% of corn production** is lost due to lack of management due to corn production.
 
 <h3 align="center">Solution</h3>
-The solution defined by the group is to create a simulative prototype of a device that will constantly monitor temperature and humidity sensor (DHT11, only one is needed to make both measurements) with the Arduino Uno, where this data will be sent via API to a Node server running on Cloud, where data will travel to a Web platform where only our application client can have access and thus be able to make a definitive decision for their business
+The solution defined by the group is to create a simulative prototype of a device that will constantly monitor temperature and humidity sensor at protoboard(arduino), where this data will be sent via API to a Node server running on virtual machine, where data will travel to a Web platform where only our application client can have access and thus be able to make a definitive decision for their business
+In terms of electronics, we will use these electronic components below, where they will capture the data we need: 
 
-<hr>
-
+<br> 
+<br>
+<table>
+    <tr>
+        <th>Device</th>
+        <th>Name</th>
+        <th>Technical Data</th>
+    </tr>
+    <tr>
+        <td>
+            <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/7/71/Arduino-uno-perspective-transparent.png/1200px-Arduino-uno-perspective-transparent.png" width="150px"  align/>
+        </td>
+        <td>
+            <h5>Arduino Uno </h5>
+        </td>
+        <td>
+            Operating voltage: 5V. Voltage limit: 6V to 20V. Digital Outputs: 14 Pins (of which 6 can be PWM outputs) Analog Outputs: 6 outputs with 3.3V.
+        </td>
+    </tr>
+    <tr>
+        <td>
+            <img src="https://www.dedcomponentes.com.br/wp-content/uploads/2023/02/sensor_lm35dz-ded-componentes_1_c252362b-e4dc-4e48-89b3-ce121c8d2520.png" width="150px"  align/>
+        </td>
+        <td>
+            <h5>LM35 </h5>
+        </td>
+        <td>
+            Temperature sensor produces a voltage signal that varies 10mV for each ºC, and it is capable of operating in a temperature range that can vary between -55ºC to 150ºC. The proximity between the measured result and the true value of the signal produced can vary from + -0.4ºC to + -1.5ºC
+        </td>
+    </tr>
+    <tr>
+        <td>
+            <img src="https://www.newpecas.com.br/imagem/web/sensor-de-temperatura-umidade-dht11.webp" width="150px"  align/>
+        </td>
+        <td>
+            <h5>DHT11 </h5>
+        </td>
+        <td>
+The DHT11 is a digital temperature and humidity sensor. It utilizes a capacitive humidity sensor and a thermistor to accurately measure environmental conditions. The sensor provides temperature readings in the range of 0 to 50 degrees Celsius with an accuracy of approximately ±2°C. Additionally, it measures humidity levels ranging from 20% to 90% with an accuracy of approximately ±5%.        </td>
+    </tr>
+</table>
 <div align="center">
   <img src="/doc-assets/icon/guardtech-logo-white.png" height="70px"/>
 </div>
