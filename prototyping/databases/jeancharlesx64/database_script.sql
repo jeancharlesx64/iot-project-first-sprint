@@ -147,3 +147,15 @@ ALTER TABLE tbCornStorage
 ADD CONSTRAINT chkLongitudeDirection CHECK(
 	longitudeDirectionCornStorage IN('W','E')
 );
+
+-- verificando o tipo do sensor, dht11 ou lm35
+ALTER TABLE tbSensorDevice 
+ADD CONSTRAINT chkTypeSensor CHECK(
+	typeSensorDevice IN('LM35','DHT11')
+);
+    
+-- verificado o status do sensor, ativo ou inativo
+ALTER TABLE tbSensorDevice 
+ADD CONSTRAINT chkSensorStatus CHECK(
+	statusSensorDevice IN('Ativo','Inativo')
+);

@@ -45,6 +45,30 @@ INSERT INTO tbUser VALUES
 
 -- armazens cadadastrados pelo usuário, mas que pertence á empresa
 INSERT INTO tbCornStorage VALUES
-	(DEFAULT,'Silo','210','','','',''),
-    (DEFAULT,'Graneleiro','500','','','',''),
-    (DEFAULT,'Bolsa','90','','', '','');
+	(DEFAULT,'Silo', 210,'-23.5475','S','-46.6361','W'),
+    (DEFAULT,'Graneleiro', 500,'-23.5500','S','-46.6333','W'),
+    (DEFAULT,'Bolsa', 90,'-23.5505','S', '-23.5505','W');
+INSERT INTO tbCornStorage VALUE (DEFAULT,'QUALQUER', 210,'-23.5475','S','-46.6361','W'); -- violação por causa do tipo do armazem
+INSERT INTO tbCornStorage VALUE (DEFAULT,'Bolsa', 90,'-23.5505','V', '-23.5505','W'); -- violação por causa da direção latitude
+INSERT INTO tbCornStorage VALUE (DEFAULT,'Bolsa', 90,'-23.5505','S', '-23.5505','P'); -- violação por causa da direção longitude
+
+
+-- sensores instalados em um armazém
+INSERT INTO tbSensorDevice VALUES
+	(DEFAULT,'LM35','Ativo'),
+    (DEFAULT,'DHT11','Inativo');
+INSERT INTO tbSensorDevice VALUE (DEFAULT, 'senr','Ativo'); -- violação de constraint, por causa do tipo do sensor
+INSERT INTO tbSensorDevice VALUE (DEFAULT, 'DHT11','desativadooo'); -- violação de constraint, por causa do status
+    
+-- log de registros capturados de um sensor especifico que está no armazém
+-- DHT11
+INSERT INTO tbSensorDeviceLog VALUE
+	(DEFAULT,NULL, 13.2,'2024-03-16 14:30:00'); -- sensor 1 por exemplo DHT11, por isso LM35 recebe NULL
+INSERT INTO tbSensorDeviceLog VALUE
+	(DEFAULT,NULL, 13.5,'2024-03-16 14:31:20'); -- sensor 1, que obteve variação da umidade
+    
+-- LM35
+INSERT INTO tbSensorDeviceLog VALUE
+	(DEFAULT,24.5, NULL,'2024-03-16 14:30:00'); -- sensor 2 por exemplo LM35, por isso DHT11 recebe NULL
+INSERT INTO tbSensorDeviceLog VALUE
+	(DEFAULT,24.5, NULL,'2024-03-16 14:31:20'); -- sensor 2, que obteve variação da umidade
