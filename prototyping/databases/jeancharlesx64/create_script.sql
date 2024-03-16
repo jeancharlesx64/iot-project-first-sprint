@@ -3,7 +3,7 @@
 -- =================================================== --
 -- ==== auxilio do 4Devs para a inserção de dados ==== --
 -- =================================================== --
-
+USE guardtech;
 
 -- 6 leads capturados (possíveis clientes), valores correto no check
 INSERT INTO tbLead VALUES
@@ -17,8 +17,7 @@ INSERT INTO tbLead VALUES
 
 -- 2 empresa que tem interese (prospect) ou que ja comprou a ideia
 INSERT INTO tbCompany VALUES
-	(DEFAULT,'Grão de Milhões','Grão de Milhões Agricola S A','18894115000132','grande','15750970','Avenida Sílvio Rallio','874','Perto do Morro do Taboão','Centro','Santa Albertina'),
-    (DEFAULT,'Max Safra','Max Safra Brasil PW','48469050000149','médio','13504056','Avenida', '48','Posto do Ipiranga','Rio Claro','Rio Claro');
+	(DEFAULT,'Grão de Milhões','Grão de Milhões Agricola S A','18894115000132','grande','15750970','Avenida Sílvio Rallio','874','Perto do Morro do Taboão','Centro','Santa Albertina');
 INSERT INTO tbCompany(sizeCompany) VALUE ('pequenininha'); -- testando check da empresa constraint vai ser violada
 
 
@@ -33,12 +32,11 @@ INSERT INTO tbPhoneCompany(typePhoneCompany) VALUE ('whatsapp'); -- testando che
 INSERT INTO tbResponsible VALUE (DEFAULT,'Fernanda Caramico','92710525011','1995-04-13','fernanda.caramico@sptech.school','16971561565');
     
 -- dados do contrato, segurança pra a empresa e controle
-INSERT INTO tbContract VALUES 
-	(DEFAULT,'2024-03-22','2024-06-05',1293.20,'pago'),
-    (DEFAULT,'2024-01-29','2024-09-15',1190.20,'pendente'),
-    (DEFAULT,'2024-03-23','2024-07-21',4190.20,'atrasado');
+INSERT INTO tbContract VALUE 
+	(DEFAULT,'2024-03-22','2024-06-05',1293.20,'pago');
+INSERT INTO tbContract VALUE (DEFAULT,'2024-01-29','2024-09-15',1190.20,'seila'); -- contraint violada, por causa do status do contrato
 
--- usuários que administra a ferramenta, cadastrada pela empresa
+-- usuários que administra a ferramenta, cadastrada pela empresa/caramico
 INSERT INTO tbUser VALUES
 	(DEFAULT,'julia_monitora','#Gf11122233396','julia@sptech.school'),
     (DEFAULT,'fernando_monitor','#Gf1112233396','fernando@sptech.school');
@@ -53,9 +51,10 @@ INSERT INTO tbCornStorage VALUE (DEFAULT,'Bolsa', 90,'-23.5505','V', '-23.5505',
 INSERT INTO tbCornStorage VALUE (DEFAULT,'Bolsa', 90,'-23.5505','S', '-23.5505','P'); -- violação por causa da direção longitude
 
 
--- sensores instalados em um armazém
+-- Instalando novos sensores no armazém
 INSERT INTO tbSensorDevice VALUES
 	(DEFAULT,'LM35','Ativo'),
+    (DEFAULT,'DHT11','Inativo'),
     (DEFAULT,'DHT11','Inativo');
 INSERT INTO tbSensorDevice VALUE (DEFAULT, 'senr','Ativo'); -- violação de constraint, por causa do tipo do sensor
 INSERT INTO tbSensorDevice VALUE (DEFAULT, 'DHT11','desativadooo'); -- violação de constraint, por causa do status
@@ -64,11 +63,17 @@ INSERT INTO tbSensorDevice VALUE (DEFAULT, 'DHT11','desativadooo'); -- violaçã
 -- DHT11
 INSERT INTO tbSensorDeviceLog VALUE
 	(DEFAULT,NULL, 13.2,'2024-03-16 14:30:00'); -- sensor 1 por exemplo DHT11, por isso LM35 recebe NULL
-INSERT INTO tbSensorDeviceLog VALUE
-	(DEFAULT,NULL, 13.5,'2024-03-16 14:31:20'); -- sensor 1, que obteve variação da umidade
+INSERT INTO tbSensorDeviceLog VALUES
+	(DEFAULT,NULL, 13.5,'2024-03-16 14:31:20'),
+    (DEFAULT,NULL, 13.7,'2024-03-16 14:31:20'),
+    (DEFAULT,NULL, 13.9,'2024-03-16 14:31:20'),
+    (DEFAULT,NULL, 13.7,'2024-03-16 14:31:20'); -- sensor 1, simulando a variação da umidade 
     
 -- LM35
 INSERT INTO tbSensorDeviceLog VALUE
 	(DEFAULT,24.5, NULL,'2024-03-16 14:30:00'); -- sensor 2 por exemplo LM35, por isso DHT11 recebe NULL
-INSERT INTO tbSensorDeviceLog VALUE
-	(DEFAULT,24.5, NULL,'2024-03-16 14:31:20'); -- sensor 2, que obteve variação da umidade
+INSERT INTO tbSensorDeviceLog VALUES
+	(DEFAULT,24.2, NULL,'2024-03-16 14:31:20'),
+    (DEFAULT,23.9, NULL,'2024-03-16 14:31:20'),
+    (DEFAULT,23.9, NULL,'2024-03-16 14:31:20'),
+    (DEFAULT,24.0, NULL,'2024-03-16 14:31:20'); -- sensor 2, simulando a variação da temperatura

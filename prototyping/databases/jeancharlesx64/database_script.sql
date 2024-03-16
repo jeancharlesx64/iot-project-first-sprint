@@ -84,7 +84,7 @@ CREATE TABLE tbCornStorage(
     volumeCornStorage INT, --  capacidade em volume metros cúbicos
     latitudeCornStorage VARCHAR(8), -- cordenadas latitude em graus
     latitudeDirectionCornStorage CHAR(1), -- DIREÇÃO da Latitude O-L
-	longitudeCornStorate VARCHAR(8), -- cordenadas longitude em graus
+	longitudeCornStorage VARCHAR(8), -- cordenadas longitude em graus
     longitudeDirectionCornStorage CHAR(1) -- DIREÇÃO da longitude N-S
     -- fk empresa => referenciar que este armazém(ns) pertence "qual empresa?"
 );
