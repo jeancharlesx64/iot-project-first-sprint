@@ -82,8 +82,10 @@ CREATE TABLE tbCornStorage(
 	idCornStorage INT PRIMARY KEY AUTO_INCREMENT NOT NULL,
     typeCornStorage VARCHAR(100), -- tipos de armazém, silos, graneleiro, granel, silobags etc
     volumeCornStorage INT, --  capacidade em volume metros cúbicos
-	longitudeCornStorate DECIMAL(7,4), -- cordenadas longitude 
-    latitudeCornStorage DECIMAL(7,4) -- cordenadas latitude
+    latitudeCornStorage VARCHAR(8), -- cordenadas latitude em graus
+    latitudeDirectionCornStorage CHAR(1), -- DIREÇÃO da Latitude O-L
+	longitudeCornStorate VARCHAR(8), -- cordenadas longitude em graus
+    longitudeDirectionCornStorage CHAR(1) -- DIREÇÃO da longitude N-S
     -- fk empresa => referenciar que este armazém(ns) pertence "qual empresa?"
 );
 
@@ -134,3 +136,14 @@ ADD CONSTRAINT chkTypeCornStorage CHECK(
 	typeCornStorage IN ('Silo','Graneleiro','Convencional', 'Bolsa')
 );
 
+-- veriificar as direções de latitude N = NORTH(norte) | S = SOUTH(sul)
+ALTER TABLE tbCornStorage 
+ADD CONSTRAINT chkLatitudeDirection CHECK(
+	latitudeDirectionCornStorage IN('N','S')
+);
+
+-- verificar as direções de longitude W = WEST(oeste) | E = EAST(leste)
+ALTER TABLE tbCornStorage
+ADD CONSTRAINT chkLongitudeDirection CHECK(
+	longitudeDirectionCornStorage IN('W','E')
+);
