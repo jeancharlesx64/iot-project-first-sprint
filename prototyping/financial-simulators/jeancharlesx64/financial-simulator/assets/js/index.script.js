@@ -11,21 +11,21 @@ btnProductivity.addEventListener('click', function(){ // listening the "click" e
 
     //dont allow the empty inputs
     if(amountHectare != '' && plantAmountSq != '' && cobAmount != '' && cobWeightG != '' && humidityPercentage != '' && celciusDegree != ''){
-        var plantAmountHectare = plantAmountSq * 10000; // converting plants by square meters to plants by hectare
-        var cobWeightKg = cobWeightG/1000; // converting cob weight in grams to kilograms
+        var plantAmountHectare = plantAmountSq * 10000; 
+        var cobWeightKg = cobWeightG/1000; 
 
-        var potentialProductivity = plantAmountHectare * cobAmount * cobWeightKg; // calculating potential productivity (no counting the loss because humidity)
-        var potencialProductivityPerBag = potentialProductivity / 60; // discovering productivity per 60kg bagssc ha-1
-        var realProductivity = potentialProductivity * (100 - humidityPercentage) / (100 - 13); // the real productivity
+        var potentialProductivity = plantAmountHectare * cobAmount * cobWeightKg; 
+        var potencialProductivityPerBag = potentialProductivity / 60; 
+        var realProductivity = potentialProductivity * (100 - humidityPercentage) / (100 - 13);
         realProductivity = realProductivity - (realProductivity * 0.10);
-        var realProductivityPerBag = realProductivity / 60; // discovering productivity per 60kg bagssc ha-1
-        var potencialPercentage = (potentialProductivity - realProductivity) * (100 / realProductivity); // diference in percentage real productivity vs potencial producitivity
+        var realProductivityPerBag = realProductivity / 60; 
+        var potencialPercentage = (((potentialProductivity - realProductivity) / potentialProductivity) * 100); 
 
-        var potencialMoney = ( (potencialProductivityPerBag) - (realProductivityPerBag) ) * 54 // 54 medium value
+        var potencialMoney = ( (potencialProductivityPerBag) - (realProductivityPerBag) ) * 54 
 
         var producerStatus;
-        var grainQuality
-        var grainQualitySentence
+        var grainQuality;
+        var grainQualitySentence;
 
         if(realProductivityPerBag < 90){
             producerStatus = `muito abaixo da média`;
