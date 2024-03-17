@@ -1,28 +1,28 @@
 # Projeto IoT - 1º Semestre | SPTech School
 
-Projeto desenvolvido no 1º Semestre da SPTech School, é um projeto que deve ser integrado com IoT. Devemos buscar um problema relevante com alto impacto social/econômico, e a solução deve ser simples e eficiente, baseada na simulação usando Arduino, devemos construir um projeto embarcado usando um dos sensores abaixo para resolver o problema definido:
+Projeto desenvolvido no 1º Semestre da SPTech School, é um projeto que deve ser integrado com IoT. Devemos buscar um problema relevante com alto impacto social/econômico, e a solução deve ser simples e eficiente, baseada na simulação usando Arduino, devemos construir um projeto embarcado usando algum dos sensores abaixo para resolver o problema definido pelo grupo:
 
 - Sensor de temperatura;
 - Sensor de umidade;
 - Sensor de travamento;
 - Sensor de luminosidade.
 
-Apenas estes devem ser usados, não mais, e devem ser consideradas premissas que se trata de uma SIMULAÇÃO, sim, uma simulação, não necessariamente os sensores serão de nível industrial, você pode verificar a documentação do repositório sobre os componentes eletrônicos envolvidos [aqui](https://github.com/jeancharlesx64/base-sensor-script). A solução deve usar no máximo 2 sensores e no mínimo 1 sensor, esta é uma regra a ser seguida por todas as equipes envolvidas.
+Apenas estes devem ser usados, nenhum outro além desses, e devem ser consideradas premissas que se trata de uma SIMULAÇÃO, sim, uma simulação, não necessariamente os sensores serão de nível industrial, você pode verificar a documentação do repositório sobre os componentes eletrônicos envolvidos [aqui](https://github.com/jeancharlesx64/base-sensor-script). A solução deve usar no máximo 2 sensores e no mínimo 1 sensor, esta é uma regra a ser seguida por todas as equipes envolvidas.
 
-As equipes devem ter como requisitos alguns "entregáveis", que são tarefas que devem ser obrigatoriamente demandadas em cada Sprint (1 semestre, são 3 sprints, são períodos curtos em que são apresentados fragmentos de um projeto, 1/3, 2/3, 3/3), que serão apresentados e analisados pelo professor orientador de Pesquisa e Inovação.
+As equipes devem ter como requisitos alguns "entregáveis", que são tarefas que devem ser obrigatoriamente demandadas em cada Sprint (1 semestre, são 3 sprints, são períodos curtos em que são apresentados em fragmentos de um projeto, 1/3, 2/3, 3/3), que serão apresentados e analisados pelo professor orientador de Pesquisa e Inovação.
 
 ### 10º Grupo
 Somos o 10º grupo, uma equipe composta por 6 membros:
-- Jean Charles | [@jeancharlesx64](https://github.com/jeancharlesx64)
-- Pedro Miguel | [@spedro-miguel](https://github.com/spedro-miguel)
-- Isabella Matos | [@IsabellaMatos44801](https://github.com/IsabellaMatos44801)
-- Isaque Borges | [@IsaqueBorges01](https://github.com/IsaqueBorges01)
-- Kaique Sotero | [@kaiquetozim](https://github.com/kaiquetozim)
-- Marcelo Alves | [@marcelo-alves-silva](https://github.com/marcelo-alves-silva)
+- Jean Charles - [@jeancharlesx64](https://github.com/jeancharlesx64)
+- Pedro Miguel - [@spedro-miguel](https://github.com/spedro-miguel)
+- Isabella Matos - [@IsabellaMatos44801](https://github.com/IsabellaMatos44801)
+- Isaque Borges - [@IsaqueBorges01](https://github.com/IsaqueBorges01)
+- Kaique Sotero - [@kaiquetozim](https://github.com/kaiquetozim)
+- Marcelo Alves - [@marcelo-alves-silva](https://github.com/marcelo-alves-silva)
 
 ---
 
-### Problema identificado - Falta de gerenciamento de temperatura e umidade no armazenamento de milho
+### Problema identificado - Falta de gerenciamento de temperatura e umidade no armazenamento dos grãos de milho
 
 A falta de gerenciamento adequado de temperatura e umidade no armazenamento de milho pode resultar em uma série de problemas significativos. O milho é um produto sensível que pode ser facilmente afetado por condições ambientais adversas. Aqui estão algumas das consequências da falta de controle de temperatura e umidade:
 
@@ -34,13 +34,13 @@ A falta de gerenciamento adequado de temperatura e umidade no armazenamento de m
 
 - **Desperdício econômico:** A deterioração do milho devido à falta de controle de temperatura e umidade resulta em desperdício econômico para agricultores e para a indústria alimentícia como um todo. Isso inclui custos adicionais de disposição de produtos danificados e perda de potencial de lucro.
 
-Existem inúmeros problemas identificados pela equipe 10, que afetam a sociedade e a economia em geral, uma vez que **10% da produção de milho** é perdida devido à falta de gestão devido à produção de milho.
+Existem inúmeros problemas identificados pela equipe 10, que afetam a sociedade e a economia em geral, uma vez que **20% da produção de milho** é perdida devido à falta de gestão devido no armazenamento dos grãos do milho, sendo 50% das perdas sendo pela falta de monitoramento da temperatura e umidade.
 
 ---
 
 ### Solução
 
-A solução definida pelo grupo é criar um protótipo simulado de um dispositivo que irá monitorar constantemente sensores de temperatura e umidade com a protoboard (arduino), onde esses dados serão enviados via API para um servidor Node em execução em uma máquina virtual, onde os dados serão enviados para uma plataforma Web onde apenas nosso cliente de aplicação pode ter acesso e assim poder tomar uma decisão definitiva para seus negócios.
+A solução definida pelo grupo é criar um protótipo simulado de um dispositivo que irá monitorar constantemente as medições capturadas pelos sensores de temperatura e umidade com a protoboard (arduino), onde esses dados serão enviados via API para um servidor Node em execução em uma máquina virtual, onde os dados serão enviados para uma plataforma Web onde apenas nosso cliente de aplicação pode ter acesso e assim poder tomar uma decisão definitiva para seus negócios.
 
 <table>
     <tr>
@@ -83,14 +83,20 @@ A solução definida pelo grupo é criar um protótipo simulado de um dispositiv
     </tr>
 </table>
 
----
 
-<div align="center">
-  <img src="/doc-assets/icon/guardtech-logo-white.png" height="70px"/>
-</div>
+<h4 align="center">Site Corporativo</h4>
+
+
+Optamos pelo nome **GuardTech+** que referencia a tecnologia de monitoramento com o sinal de adição, mas também, em português representando a palavra "Mais", que em alguns países é como o milho é chamado, como em francês, espanhol, italiano e outros idiomas. Decidimos usar um logotipo simples representando o milho, com uma fonte e cor minimalistas simples com o slogan "Sempre Mais com você", com este trocadilho sugerindo que os produtores não devem mais perder seu milho no armazenamento usando nossa solução.
+
 
 <div align="center">
   <img src="/doc-assets/img/screenshot/full-website-prototype.png" />
 </div>
+<br>
 
-Optamos pelo nome **GuardTech+** que referencia a tecnologia de monitoramento com o sinal de adição, mas também, em português representando a palavra "Mais", que em alguns países é como o milho é chamado, como em francês, espanhol, italiano e outros idiomas. Decidimos usar um logotipo simples representando o milho, com uma fonte e cor minimalistas simples com o slogan "Sempre Mais com você", com este trocadilho sugerindo que os produtores não devem mais perder seu milho no armazenamento usando nossa solução.
+<div align="center">
+  <img src="/doc-assets/icon/guardtech-logo-white.png" height="70px"/>
+</div>
+<br>
+
