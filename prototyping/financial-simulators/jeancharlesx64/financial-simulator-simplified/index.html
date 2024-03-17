@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GuardTech+ | Simulador Financeiro Simplificado</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="card-form">
+        <label class="lbl-question">Hectares totais:</label>
+        <input type="number" id="txt_qtdHectare" class="input-question">
+        <br>
+        <label class="lbl-question">Plantas por m²(média):</label>
+        <input type="number" id="txt_qtdPlantaMq" class="input-question">
+        <br>
+        <label class="lbl-question">Espigas por planta(média):</label>
+        <input type="Number" id="txt_qtdEspigaPlanta" class="input-question">
+        <br>
+        <label class="lbl-question">Peso das Espigas(média em g):</label>
+        <input type="number" id="txt_pesoEspiga" class="input-question">
+        <br>
+        <label class="lbl-question">Umidade dos grãos(%):</label>
+        <input type="number" id="txt_qtdUmidadePercentual" class="input-question">
+        <br>
+        <label class="lbl-question">Temperatura dos grãos(C°):</label>
+        <input type="number" id="txt_temperaturaCelcius" class="input-question">
+        <br>
+        <button onclick="calcular()">Ver produtividade</button>
+    </div>
+    <div id="resultado">
+
+    </div>
+
+    <script>
+        function calcular(){
+            var qtdHectare = Number(txt_qtdHectare.value); //quantidade de hectares no total
+            var qtdPlantaMq =  Number(txt_qtdPlantaMq.value) // quantidade média de plantas por metro quadrado?
+            var qtdEspiga = Number(txt_qtdEspigaPlanta.value) // quantidade média de espigas por planta
+            var pesoEspigaG = Number(txt_pesoEspiga.value); // peso médio das espigas em gamas
+            var umidadePercentual = Number(txt_qtdUmidadePercentual.value); // percentual de umidade onde os milhos estão sendo armazenados
+            var temperaturaCelsius = Number(txt_temperaturaCelcius.value); // temperatura em celsius onde os milhos estão sendo armazenados
+
+            // convertendo as plantas por metro quadrado em plantas por hectares
+            var qtdPlantaHectare = qtdPlantaMq * 10000; 
+            // convertendo o peso da espiga de gramas para kg   
+            var pesoEspigaKg = pesoEspigaG/1000; 
+
+            // calculando a potencial produtividade em KG por hectare
+            // (sem contar com a perda por conta da umidade)
+            var potencialProdutividadeKgHa = qtdPlantaHectare * qtdEspiga * pesoEspigaKg; 
+
+            // calculando a potencial produtividade em Sacas por hectare
+            // (considerando o potencial em KG, e Sacas de 60Kg, média)
+            var potencialProdutividadeSaHa = potencialProdutividadeKgHa / 60; 
+
+            // calculando a real produtividade em KG por hectare
+            // (considerando as perdas pela umidade elevada)
+            var realProdutividadeKgHa = potencialProdutividadeKgHa * (100 - umidadePercentual) / (100 - 13); 
+
+            // retirando os 10% de perdas que ocorrem por outros motivos da produtividade real do produtor
+            // 20% da produção total é perdido, enquanto 50% das perdas é pela umidade
+            // ou seja, 10% da produção total é perdido pela umidade e temperatura e outros 10% perdido por outros fatores
+            realProdutividadeKgHa = realProdutividadeKgHa - (realProdutividadeKgHa * 0.10);
+
+            // real produtividade de novo, mas agora em sacas por hectares
+            // (considerando sacas de 60kg)
+            var realProdutividadeSaHa = realProdutividadeKgHa / 60; 
+
+            // diferença em porcentagem da real produtividade vs a potencial produtividade que o produtor poderia ter
+            var potencialAumentoPercentual = (((potencialProdutividadeKgHa - realProdutividadeKgHa) / potencialProdutividadeKgHa) * 100);
+
+            // potencial dinheiro que o produtor poderia estar ganhando
+            // considerando o valor da saca de R$63 reais
+            var potencialDinheiro = ( (potencialProdutividadeSaHa) - (realProdutividadeSaHa) ) * 63;
+
+            // inciando variáveis
+            var nivelProdutor; // nível do produtor, baixo, médio, avançado
+            var qualidadeGrao; // qualidade do grão do milho 
+            var qualidadeGraoFrase; // frase de acordo com a qualidade do milho
+
+            // nível do produtor baseada na quantidade de sacas por hectare que ele produz
+            if(realProdutividadeSaHa < 90){
+                nivelProdutor = `muito abaixo da média`;
+            }
+            if(realProdutividadeSaHa < 110){
+                nivelProdutor = `médiano`;
+            }
+            if(realProdutividadeSaHa >= 110){
+                nivelProdutor = 'avançado';
+            }
+
+
+            //qualidade do grão do milho baseado na temperatura
+            if(temperaturaCelsius < 10 ){
+                qualidadeGrao = 'baixa';
+                qualidadeGraoFrase = 'A temperatura do milho está muito abaixo do normal'
+            }
+            if(temperaturaCelsius < 20){
+                qualidadeGrao = `média`;
+                qualidadeGraoFrase = 'Temperatura baixa causa uma maturação tardia, elevando as perdas de forma significativa'
+            }
+            if(temperaturaCelsius < 22){
+                qualidadeGrao = `boa`;
+                qualidadeGraoFrase = 'Temperatura quase perfeita, os grãos deveriam estar entre 22-24°C';
+            }
+            if(temperaturaCelsius <= 24){
+                qualidadeGrao = `perfeita`;
+                qualidadeGraoFrase = 'Temperatura perfeita! os grãos devem estar entre 22-24°C, continue assim';
+            }
+            if(temperaturaCelsius <= 30){
+                qualidadeGrao = `média`;
+                qualidadeGraoFrase = 'Temperatura quase perfeita, os grãos deveriam estar entre 22-24°C';
+            }
+            if(temperaturaCelsius > 30){
+                grainQuality = `baixa`;
+                grainQualitySentence = 'Temperatura muito elevada pode agravar as perdas em até 40%';
+            }
+
+
+            // apresentando o resultado na tela
+            resultado.innerHTML = `
+                <img width="48" height="48" src="https://img.icons8.com/fluency/48/bar-chart.png" alt="bar-chart"/>
+                <h2 class="">Produtividade</h2>
+                <p class="">Total de <b>${realProdutividadeKgHa.toFixed(1)}kg/ha</b></p>
+                <p class="">O que se traduz para <span class="">R$${(realProdutividadeSaHa * 54).toFixed(1)} reais</span></p>
+                <br>
+                <img width="48" height="48" src="https://img.icons8.com/fluency/48/bearish.png" alt="bearish"/>   
+                <h2 class="">Perdas</h2>
+                <p class="">Você está perdendo cerca de <span class="">${(potencialProdutividadeKgHa - realProdutividadeKgHa).toFixed(1)} kg/ha</span></p>
+                <p class=">Que pode ser resolvido de maneira simples e eficiente</p>
+                <br>
+                <img width="48" height="48" src="https://img.icons8.com/fluency/48/line-chart.png" alt="line-chart"/>                      
+                <h2 class="">Produtor</h2>
+                <p class="">Você é um produtor <b>${nivelProdutor}(${realProdutividadeSaHa}sa)</b></p>
+                <p class="">em relação aos produtores do mercado média (105sa)</p>
+                <br>
+                <img width="48" height="48" src="https://img.icons8.com/fluency/48/stocks-growth--v1.png" alt="stocks-growth--v1"/>                    <h2 class="">Potencial</h2>
+                <p class="">Potêncial de escala em até <span class="">${potencialProdutividadeKgHa.toFixed(1)}kg/ha</span></p>
+                <p class="">Podendo aumentar seus ganhos em <b>${potencialAumentoPercentual.toFixed(1)}%</b></p>
+                <br>
+                <img width="48" height="48" src="https://img.icons8.com/fluency/48/corn.png" alt="corn"/>
+                <h2 class="">Qualidade</h2>
+                <p class="">Seu grão tem qualidade <b>${qualidadeGrao}</b></p>
+                <p class="">${qualidadeGraoFrase}</p>
+                <br>
+                <img width="48" height="48" src="https://img.icons8.com/fluency/48/delete-dollar.png" alt="delete-dollar"/>
+                <h2 class="">Lucratividade</h2>
+                <p class="">Você esta deixando de ganhar cerca de <span class="">RS${(potencialDinheiro * qtdHectare).toFixed(2)} reais</span>, de toda sua plantação</p>
+
+                <table>
+                    <tr>
+                        <th>Estado</th>
+                        <th>Valor p/60kg</th>
+                        <th><img width="25" height="25" src="https://img.icons8.com/fluency/48/cancel.png" alt="cancel"/></th>
+                        <th><img width="25" height="25" src="https://img.icons8.com/fluency/48/ok--v1.png" alt="ok--v1"/></th>
+                    </tr>
+                    <tr>
+                        <td>São Paulo</td>
+                        <td>R$64.00</td>
+                        <td><span class="">R$${(realProdutividadeSaHa * 64).toFixed(2)} p/ha</span></td>
+                        <td><span class="">R$${(potencialProdutividadeSaHa * 64).toFixed(2)}p/ha</span></td>
+                    </tr>
+                    <tr>
+                        <td>Mato Grosso</td>
+                        <td>R$47.90</td>
+                        <td><span class="">R$${(realProdutividadeSaHa * 47.90).toFixed(2)}p/ha</span></td>
+                        <td><span class="">R$${(potencialProdutividadeSaHa * 47.90).toFixed(2)}p/ha</span></td>
+                    </tr>
+                    <tr>
+                        <td>Paraná</td>
+                        <td>R$55.10</td>
+                        <td><span class="">R$${(realProdutividadeSaHa * 55.10).toFixed(2)}p/ha</span></td>
+                        <td><span class="">R$${(potencialProdutividadeSaHa * 55.10).toFixed(2)}p/ha</span></td>
+                    </tr>
+                    <tr>
+                        <td>Goiás</td>
+                        <td>R$53.00</td>
+                        <td><span class="">R$${(realProdutividadeSaHa * 53).toFixed(2)}p/ha</span></td>
+                        <td><span class="">R$${(potencialProdutividadeSaHa * 53).toFixed(2)}p/ha</span></td>
+                    </tr>
+                    <tr>
+                        <td>Rio Grande do Sul</td>
+                        <td>R$50.00</td>
+                        <td><span class="">R$${(realProdutividadeSaHa * 50).toFixed(2)}p/ha</span></td>
+                        <td><span class="">R$${(potencialProdutividadeSaHa * 50).toFixed(2)}p/ha</span></td>
+                    </tr>
+                    <tr>
+                        <td>Média (Brasil)</td>
+                        <td>R$54</td>
+                        <td><span class="">R$${(realProdutividadeSaHa * 54).toFixed(2)}p/ha</span></td>
+                        <td><span class="">R$${(potencialProdutividadeSaHa * 54).toFixed(2)}p/ha</span></td>
+                    </tr>
+                </table>
+            `
+            }
+    </script>
+</body>
+</html>
