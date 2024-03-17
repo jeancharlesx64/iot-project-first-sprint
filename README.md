@@ -85,17 +85,21 @@ The DHT11 is a digital temperature and humidity sensor. It utilizes a capacitive
 </table>
 
 <h4 align="center">Corporate website</h4>
+
+
 We chose the name **GuardTech+** which references monitoring technology with the + signifying Plus, but also, in Portuguese representing the word "Mais", which in some countries is what corn is called, as in French, Spanish, Italian and other languages. We decided to use a simple logo representing corn, with a simple minimalist font and color with the slogan "Sempre Mais com você" ("Always more with you") with this pun suggesting that producers should no longer lose their corn in storage using our solution.
 
 <br>
 <br>
 
 <div align="center">
-  <img src="/doc-assets/icon/guardtech-logo-white.png" height="70px"/>
-</div>
-<br>
-<div align="center">
   <img src="/doc-assets/img/screenshot/full-website-prototype.png" />
 </div>
 <br>
+
+<div align="center">
+  <img src="/doc-assets/icon/guardtech-logo-white.png" height="70px"/>
+</div>
+<br>
+
 
