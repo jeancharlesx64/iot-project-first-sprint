@@ -7,29 +7,45 @@
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <div class="card-form">
-        <label class="lbl-question">Hectares totais:</label>
-        <input type="number" id="txt_qtdHectare" class="input-question">
-        <br>
-        <label class="lbl-question">Plantas por m²(média):</label>
-        <input type="number" id="txt_qtdPlantaMq" class="input-question">
-        <br>
-        <label class="lbl-question">Espigas por planta(média):</label>
-        <input type="Number" id="txt_qtdEspigaPlanta" class="input-question">
-        <br>
-        <label class="lbl-question">Peso das Espigas(média em g):</label>
-        <input type="number" id="txt_pesoEspiga" class="input-question">
-        <br>
-        <label class="lbl-question">Umidade dos grãos(%):</label>
-        <input type="number" id="txt_qtdUmidadePercentual" class="input-question">
-        <br>
-        <label class="lbl-question">Temperatura dos grãos(C°):</label>
-        <input type="number" id="txt_temperaturaCelcius" class="input-question">
-        <br>
-        <button onclick="calcular()">Ver produtividade</button>
+    <div class="card-box">
+        <h1 class="card-title">Produtividade (kg/sa)</h1>
+        <!-- 1 linha e duas colunas -->
+        <div class="row-input">
+            <div class="col-input">
+                <label class="lbl-question">Hectares totais:</label>
+                <input type="number" id="txt_qtdHectare" class="input-question">
+            </div>
+            <div class="col-input">
+                <label class="lbl-question">Plantas por m²(média):</label>
+                <input type="number" id="txt_qtdPlantaMq" class="input-question">
+            </div>
+        </div>
+
+
+        <div class="row-input">
+            <div class="col-input">
+                <label class="lbl-question">Espigas por planta(média):</label>
+                <input type="Number" id="txt_qtdEspigaPlanta" class="input-question">
+            </div>
+            <div class="col-input">
+                <label class="lbl-question">Peso das Espigas(média em g):</label>
+                <input type="number" id="txt_pesoEspiga" class="input-question">
+            </div>
+        </div>  
+        <div class="row-input">
+            <div class="col-input">
+                <label class="lbl-question">Umidade dos grãos(%):</label>
+                <input type="number" id="txt_qtdUmidadePercentual" class="input-question">
+            </div>
+            <div class="col-input">
+                <label class="lbl-question">Temperatura dos grãos(C°):</label>
+                <input type="number" id="txt_temperaturaCelcius" class="input-question">
+            </div>
+        </div>
+        <button class="btn-calcular" onclick="calcular()">Ver produtividade</button>
     </div>
     <div id="resultado">
-
+        
     </div>
 
     <script>
@@ -120,40 +136,65 @@
 
             // apresentando o resultado na tela
             resultado.innerHTML = `
-                <img width="48" height="48" src="https://img.icons8.com/fluency/48/bar-chart.png" alt="bar-chart"/>
-                <h2 class="">Produtividade</h2>
-                <p class="">Total de <b>${realProdutividadeKgHa.toFixed(1)}kg/ha</b></p>
-                <p class="">O que se traduz para <span class="">R$${(realProdutividadeSaHa * 54).toFixed(1)} reais</span></p>
-                <br>
-                <img width="48" height="48" src="https://img.icons8.com/fluency/48/bearish.png" alt="bearish"/>   
-                <h2 class="">Perdas</h2>
-                <p class="">Você está perdendo cerca de <span class="">${(potencialProdutividadeKgHa - realProdutividadeKgHa).toFixed(1)} kg/ha</span></p>
-                <p class=">Que pode ser resolvido de maneira simples e eficiente</p>
-                <br>
-                <img width="48" height="48" src="https://img.icons8.com/fluency/48/line-chart.png" alt="line-chart"/>                      
-                <h2 class="">Produtor</h2>
-                <p class="">Você é um produtor <b>${nivelProdutor}(${realProdutividadeSaHa}sa)</b></p>
-                <p class="">em relação aos produtores do mercado média (105sa)</p>
-                <br>
-                <img width="48" height="48" src="https://img.icons8.com/fluency/48/stocks-growth--v1.png" alt="stocks-growth--v1"/>                    <h2 class="">Potencial</h2>
-                <p class="">Potêncial de escala em até <span class="">${potencialProdutividadeKgHa.toFixed(1)}kg/ha</span></p>
-                <p class="">Podendo aumentar seus ganhos em <b>${potencialAumentoPercentual.toFixed(1)}%</b></p>
-                <br>
-                <img width="48" height="48" src="https://img.icons8.com/fluency/48/corn.png" alt="corn"/>
-                <h2 class="">Qualidade</h2>
-                <p class="">Seu grão tem qualidade <b>${qualidadeGrao}</b></p>
-                <p class="">${qualidadeGraoFrase}</p>
-                <br>
-                <img width="48" height="48" src="https://img.icons8.com/fluency/48/delete-dollar.png" alt="delete-dollar"/>
-                <h2 class="">Lucratividade</h2>
-                <p class="">Você esta deixando de ganhar cerca de <span class="">RS${(potencialDinheiro * qtdHectare).toFixed(2)} reais</span>, de toda sua plantação</p>
+            
+            <div class="row-resultado">
+            <div class="col-resultado">
+                <div class="card-resultado">
+                    <img width="50" height="50" src="https://img.icons8.com/stickers/100/bar-chart.png" alt="bar-chart"/>
+                    <h2 class="">Produtividade</h2>
+                    <p class="">Total de <b>${realProdutividadeKgHa.toFixed(1)}kg/ha</b></p>
+                    <p class="">O que se traduz para <span class="">R$${(realProdutividadeSaHa * 54).toFixed(1)} reais</span></p>
+                </div>
+            </div>
+            <div class="col-resultado"> 
+                <div class="card-resultado">
+                    <img width="50" height="50" src="https://img.icons8.com/stickers/100/bearish.png" alt="bearish"/>
+                    <h2 class="">Perdas</h2>
+                    <p class="">Você está perdendo cerca de <span class="">${(potencialProdutividadeKgHa - realProdutividadeKgHa).toFixed(1)} kg/ha</span></p>
+                    <p class="">Que pode ser resolvido de maneira simples e eficiente</p>
+                </div>        
+            </div>
+            <div class="col-resultado">
+                <div class="card-resultado">
+                    <img width="50" height="50" src="https://img.icons8.com/stickers/100/combo-chart.png" alt="combo-chart"/>                      
+                    <h2 class="">Produtor</h2>
+                    <p class="">Você é um produtor <b>${nivelProdutor}(${realProdutividadeSaHa.toFixed(2)}sa)</b></p>
+                    <p class="">em relação aos produtores do mercado média (105sa)</p>
+                </div>   
+            </div>
+        </div>
 
+        <div class="row-resultado">
+            <div class="col-resultado">
+                <div class="card-resultado">
+                    <img width="50" height="50" src="https://img.icons8.com/stickers/100/bullish.png" alt="bullish"/>                    
+                    <h2 class="">Potencial</h2>
+                    <p class="">Potêncial de escala em até <span class="">${potencialProdutividadeKgHa.toFixed(1)}kg/ha</span></p>
+                    <p class="">Podendo aumentar seus ganhos em <b>${potencialAumentoPercentual.toFixed(1)}%</b></p>
+                </div>   
+            </div>
+            <div class="col-resultado">
+                <div class="card-resultado">
+                    <img width="50" height="50" src="https://img.icons8.com/stickers/100/corn.png" alt="corn"/>
+                    <h2 class="">Qualidade</h2>
+                    <p class="">Seu grão tem qualidade <b>${qualidadeGrao}</b></p>
+                    <p class="">${qualidadeGraoFrase}</p>
+                </div>   
+            </div>
+            <div class="col-resultado">
+                <div class="card-resultado">
+                    <img width="50" height="50" src="https://img.icons8.com/stickers/100/no-cash.png" alt="no-cash"/>
+                    <h2 class="">Lucratividade</h2>
+                    <p class="">Você esta deixando de ganhar cerca de <span class="">RS${(potencialDinheiro * qtdHectare).toFixed(2)} reais</span>, de toda sua plantação</p>
+                </div>   
+            </div>
+        </div>
                 <table>
                     <tr>
                         <th>Estado</th>
                         <th>Valor p/60kg</th>
-                        <th><img width="25" height="25" src="https://img.icons8.com/fluency/48/cancel.png" alt="cancel"/></th>
-                        <th><img width="25" height="25" src="https://img.icons8.com/fluency/48/ok--v1.png" alt="ok--v1"/></th>
+                        <th><img width="100" height="100" src="https://img.icons8.com/stickers/100/cancel.png" alt="cancel"/></th>
+                        <th><img width="100" height="100" src="https://img.icons8.com/stickers/100/ok.png" alt="ok"/></th>
                     </tr>
                     <tr>
                         <td>São Paulo</td>
