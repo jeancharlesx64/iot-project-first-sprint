@@ -2,7 +2,7 @@
 
 <h1 align="center">IoT Project - 1st Semester | SPTech School</h1>
 
-Project developed in the 1st Semester of SPTech Scool, is a project that must be integrated with IoT. We must look for a relevant problem with high social/economic impact, and the solution must be simple and efficient, based on the simulation using Arduino, we must build an embedded project using one of the sensors below to build the solution to the defined problem:
+Project developed in the 1st Semester of SPTech Scool, is a project that must be integrated with IoT. We must look for a relevant problem with high social/economic impact, and the solution must be simple and efficient, based on the simulation using Arduino, we must build an embedded project using some of the sensors below to build the solution defined by the group:
 
 - Temperature sensor;
 - Humidity sensor;
@@ -11,7 +11,7 @@ Project developed in the 1st Semester of SPTech Scool, is a project that must be
 
 Only these must be used, no more, and must take as premises that it is a SIMULATION, yes, a simulation, not necessarily the sensors will be industrial level, you can check the repository documentation about the electronic components involved [here](https://github.com/jeancharlesx64/base-sensor-script). The solution must use a maximum of 2 sensors and a minimum of 1 sensor, this is a rule to be followed by all teams involved.
 
-The Teams must have as requirements some "deliverables", these are tasks that must be mandatory to be demanded in each Sprint(1 semester, there are 3 sprints, these are short periods in which fragments of a project are presented, 1/3, 2/3, 3/3), which will then be presented and analyzed by the Research and Innovation advisor professor.
+The Teams must have as requirements some "deliverables", these are tasks that must be mandatory to be demanded in each Sprint(1 semester, there are 3 sprints, are short periods in which fragments of a project are presented, 1/3, 2/3, 3/3), which will then be presented and analyzed by the Research and Innovation advisor professor.
 
 #### 10th Group
 We are 10th group, a team made up of 6 members:
@@ -20,11 +20,11 @@ We are 10th group, a team made up of 6 members:
 - Isabella Matos - [@IsabellaMatos44801](https://github.com/IsabellaMatos44801)
 - Isaque Borges - [@IsaqueBorges01](https://github.com/IsaqueBorges01)
 - Kaique Sotero - [@kaiquetozim](https://github.com/kaiquetozim)
-- Marcelo Alves - [@171marcelo](https://github.com/171marcelo)
+- Marcelo Alves - [@marcelo-alves-silva](https://github.com/marcelo-alves-silva)
 
 <hr>
 
-<h3 align="center">Problem found - Lack of temperature and humidity management in corn storage</h3>
+<h3 align="center">Problem encountered – Lack of temperature and humidity management when storing corn grains</h3>
 
 Failure to properly manage temperature and humidity in corn storage can result in a number of significant problems. Corn is a sensitive product that can be easily affected by adverse environmental conditions. Here are some of the consequences of lack of temperature and humidity control:
 
@@ -36,7 +36,7 @@ Failure to properly manage temperature and humidity in corn storage can result i
 
 - **Economic waste:** Corn spoilage due to lack of temperature and humidity control results in economic waste for farmers and the food industry as a whole. This includes additional costs of disposing of damaged products and lost profit potential.
 
-There are numerous problems that were found by team 10, which affect society and the general economy, as **10% of corn production** is lost due to lack of management due to corn production.
+There are numerous problems identified by team 10, which affect society and the economy in general, since **20% of corn production** is lost due to lack of management due to the storage of corn grains, with 50% of losses due to lack of monitoring of temperature and humidity(10% loss in total production).
 
 <h3 align="center">Solution</h3>
 The solution defined by the group is to create a simulative prototype of a device that will constantly monitor temperature and humidity sensor at protoboard(arduino), where this data will be sent via API to a Node server running on virtual machine, where data will travel to a Web platform where only our application client can have access and thus be able to make a definitive decision for their business
