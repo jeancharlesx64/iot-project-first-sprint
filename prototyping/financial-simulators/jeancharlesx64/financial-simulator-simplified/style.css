@@ -9,12 +9,19 @@ html,body{
 body{
     background-color: #eeeeee;
     display: flex;
-    align-items: center;
-    justify-content: center;
     flex-direction: column;
+    align-items: center;
+}
+.texto-vermelho{
+    color: red;
+    font-weight: bolder;
+}
+.texto-verde{
+    color: green;
+    font-weight: bolder;
 }
 
-/* linha input*/
+/* linha e coluna para os input*/
 .row-input{
     display: flex;
     flex-direction: row;
@@ -22,7 +29,6 @@ body{
     gap: 20px;
     margin: 10px 0 0 0;
 }
-/* coluna input*/
 .col-input{
     display: flex;
     flex-direction: column;
@@ -31,17 +37,44 @@ body{
 
 .card-box{
     background-color: #FFF;
-    width: 500px;
-    height: 250px;
+    width: 520px;
+    height: 290px;
     border: 2px solid #000;
     box-shadow: -5px 5px 0px  #000;
     padding: 20px;
+    margin-top: 80px;
 }
 
 .card-title{
     margin: 0 0 5px 0;
     text-align: center;
-    color: #45b12f;
+    font-size: 20px;
+}
+label{
+    font-weight: bolder;
+}
+input{
+    height: 30px;
+    margin-top: 5px;
+    padding-left: 5px;
+    border: 2px solid black;
+    box-shadow: -3px 3px 0 black;
+    outline: none;
+}
+.btn-calcular{
+    width: 100%;
+    height: 40px;
+    margin-top: 15px;
+    background-color: #55b642;
+    border: 2px solid black;
+    box-shadow: -3px 3px 0 black;
+    color: white;
+    font-weight: bolder;
+    cursor: pointer;
+    transition: 0.3s;
+}
+.btn-calcular:hover{
+    background-color: #318121;
 }
 
 /*  =============== resultado ================== */
@@ -56,23 +89,24 @@ body{
     display: flex;
 }
 
+/* linha e coluna para resultado*/
 .row-resultado{
     display: flex;
     flex-direction: row;
     width: 100%;
-    gap: 20px;
-    margin: 10px 0 0 0;
+    gap: 50px;
 }
-/* coluna resultado*/
 .col-resultado{
+    margin-top: 10px;
     display: flex;
     flex-direction: column;
     width: 50%;
     align-items: center;
 }
+
 .card-resultado{
     height: 200px;
-    width: 250px;
+    width: 270px;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -82,4 +116,35 @@ body{
     padding: 10px;
     border: 2px solid #000;
     box-shadow: -5px 5px 0px  #000;
+    margin-left: -35px;
+}
+
+.card-resultado h2{
+    font-size: 20px;
+    margin-bottom: 10px;
+}
+
+/* =========== tabela ============ */
+
+table {
+    margin: 30px 0 150px 20px;
+    width: 100%;
+    border-collapse: collapse;
+    border: 2px solid #000;
+    box-shadow: -5px 5px 0 #000;
+    background-color: #FFF;
+}
+th, td {
+    padding: 8px;
+    text-align: left;
+    border-bottom: 1px solid #000000;
+    text-align: center;
+
+}
+th {
+    background-color: #45b12f7e;
+    border-bottom: 1px solid black;
+}
+th > img{
+    filter: drop-shadow(-2px 2px 0px black);
 }

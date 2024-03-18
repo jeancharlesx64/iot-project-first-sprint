@@ -180,7 +180,7 @@ btnProductivity.addEventListener('click', function(){
                         </tr>
                         <tr>
                             <td>Média (Brasil)</td>
-                            <td>R$64.00</td>
+                            <td>R$63.00</td>
                             <td><span class="red-text">R$${(realProductivityPerBag * 54).toFixed(2)}/ha</span></td>
                             <td><span class="green-text">R$${(potencialProductivityPerBag * 54).toFixed(2)}/ha</span></td>
                         </tr>
