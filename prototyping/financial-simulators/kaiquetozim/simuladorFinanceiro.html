@@ -4,24 +4,49 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    
-    Quantidade de milho em (kg) armazenada <br>
-    <input type="number" placeholder="0kg" id="input_qtdMilho">
-    <br>
-    Selecione o Estado desejado dentre as opções (Paraná, São Paulo, Minas Gerais, Mato Grosso, Mato Grosso do Sul e Goiás)<br> 
-    <input type="text" id="input_estado">
-               
-    </select>
 
-    <button onclick="perdas()">
-        Calcular Perdas
-    </button>
+    <h1> GUARD TECH </h1> 
 
-    <div id="exibir">
+<div>
 
+    <h2 class="classe1">CALCULADORA FINANCEIRA</h2>
+
+    <div class="classe2">
+    <h3>Quantidade de milho em (kg) armazenada</h3>
+    <input class="classe3" type="number" placeholder="0kg" id="input_qtdMilho">
+    <br><br>
     </div>
+ 
+
+    <div class="classe4">
+    <h3>Selecione o Estado</h3> 
+    <select  id="estado_id">
+    <option value="GO"> Goiás</option>
+    <option value="MG"> Minas Gerais</option>
+    <option value="MT"> Mato Grosso</option>
+    <option value="MS"> Mato Grosso Do Sul</option>
+    <option value="PR"> Paraná</option>
+    <option value="SP"> São Paulo</option>
+    </div>
+
+    </select>           
+    <br><br>
+    <button class="classe6" onclick="perdas()">
+    Calcular Perdas
+    </button>
+    <br><br>
+
+
+
+    <span id="exibir"></span>
+
+    
+</div>
+
+
 
 </body>
 </html>
@@ -30,146 +55,125 @@
         function perdas() {
 
             var milhokg = Number(input_qtdMilho.value)
+            var estado = estado_id.value
 
-            var precosp = 1.28 //perda 8%
-            var precomg = 1.50 //perda 10%
-            var precoMt = 1.40 //perda 7%
-            var precoms = 1.34  //perda 15%
-            var precoGoias = 1.35//perda 10%
-            var precoparana = 1.36//perda 20%
+            var precoKgSp = 1.28 //perda 8%
+            var precoKgMg = 1.50 //perda 10%
+            var precoKgMt = 1.40 //perda 7%
+            var precoKgMs = 1.34  //perda 15%
+            var precoKgGo = 1.35//perda 10%
+            var precoKgPR = 1.36//perda 20%
 
-           var estado = input_estado.value
-           var valorRegiao = 0
-           var perdaRegiao = 0
-           var reducaoRegiao = 0
-           var precoRegiao = 0
-           var lucroRegiao = 0
+           var valorTotalMilho = 0
+           var perdaMilho = 0
+           var dinheiroPerdido = 0
+           var reducaoPerda = 0
+           var precoKg = 0
+           var valorMilhoPerda = 0
            var porcentagemperda = 0
+           var reducaoTotalDinheiro = 0
 
+            if(estado == "SP" ) {
 
-            if(estado == "São Paulo" ) {
+                precoKg = precoKgSp
 
-                precoRegiao = precosp
-
-                var valorkgS = milhokg * precosp
-                valorRegiao = valorkgS
-
-                var PerdaporcentualSP = 8
-                porcentagemperda = PerdaporcentualSP
-
-                var perdaSP = valorkgS * 0.08
-                perdaRegiao = perdaSP
-
-                var lucroSP = valorkgS - perdaSP
-                lucroRegiao = lucroSP
-
-                var reducaoPerdaSP =valorkgS - (perdaSP * 0.10)
-                reducaoRegiao = reducaoPerdaSP
-
-            }
-
-            if(estado == "Minas Gerais" ) {
-
-                precoRegiao = precomg
-
-                var valorkgMG = milhokg * precomg
-                valorRegiao = valorkgMG
-
-                var PerdaporcentualMG = 10
-                porcentagemperda = PerdaporcentualMG
-
-                var perdaMinas = valorkgMG * 0.10
-                perdaRegiao = perdaMinas
-
-                var lucroMinas = valorkgMG - perdaMinas
-                lucroRegiao =lucroMinas
-
-                var reducaoPerdaMinas = valorkgMG - (perdaMinas * 0.10)
-                reducaoRegiao = reducaoPerdaMinas
-            }
-
-            if(estado == "Mato Grosso" ) {
-
-                precoRegiao = precoMt
-
-                var valorkgMT= milhokg * precoMt
-                valorRegiao = valorkgMT
-
-                var PerdaporcentualMT = 7
-                porcentagemperda = PerdaporcentualMT
+                valorTotalMilho = milhokg * precoKgSp
                 
-                var perdaMT = valorkgMT * 0.07
-                perdaRegiao = perdaMT
+                porcentagemperda = 8
 
-                var lucroMT = valorkgMT - perdaMT
-                lucroRegiao =lucroMT
+                perdaMilho = milhokg * 0.08
+                
+                dinheiroPerdido = valorTotalMilho * 0.08
 
-                var reducaoPerdaMT = valorkgMT - (perdaMT * 0.10)
-                reducaoRegiao = reducaoPerdaMT
+                valorMilhoPerda = valorTotalMilho - dinheiroPerdido
+                
+                reducaoPerda = dinheiroPerdido * 0.10
+
+                reducaoTotalDinheiro = valorTotalMilho - (dinheiroPerdido - reducaoPerda)
+                
+            }  else if(estado == "MG" ) {
+
+                precoKg = precoKgMg
+
+                valorTotalMilho = milhokg * precoKgMg
+
+                porcentagemperda = 10
+
+                perdaMilho = milhokg * 0.10
+                
+                dinheiroPerdido = valorTotalMilho * 0.10
+
+                valorMilhoPerda = valorTotalMilho - dinheiroPerdido
+                
+                reducaoPerda = dinheiroPerdido * 0.10
+
+                reducaoTotalDinheiro = valorTotalMilho - (dinheiroPerdido - reducaoPerda)
+
+            }  else if(estado == "MT" ) {
+                
+                precoKg = precoKgMt
+
+                valorTotalMilho = milhokg * precoKgMt
+                
+                porcentagemperda = 7
+
+                perdaMilho = milhokg * 0.07
+                
+                dinheiroPerdido = valorTotalMilho * 0.07
+
+
+            }  else if(estado == "MS" ) {
+                
+                precoKg = precoKgMs
+
+                valorTotalMilho = milhokg * precoKgMs
+                
+                porcentagemperda = 15
+
+                perdaMilho = milhokg * 0.15
+                
+                dinheiroPerdido = valorTotalMilho * 0.15
+
+            } else if(estado == "GO" ) {
+
+                precoKg = precoKgGo
+
+                valorTotalMilho = milhokg * precoKgGo
+                
+                porcentagemperda = 10
+
+                perdaMilho = milhokg * 0.10
+                
+                dinheiroPerdido = valorTotalMilho * 0.10
+
+            }else {
+                
+                precoKg = precoKgPR
+
+                valorTotalMilho = milhokg * precoKgPR
+                
+                porcentagemperda = 20
+
+                perdaMilho = milhokg * 0.20
+                
+                dinheiroPerdido = valorTotalMilho * 0.20
+
             }
-            if(estado == "Mato Grosso do Sul" ) {
 
-                precoRegiao = precoms
+            valorMilhoPerda = valorTotalMilho - dinheiroPerdido
+                
+            reducaoPerda = dinheiroPerdido * 0.10
+                
+            reducaoTotalDinheiro = valorTotalMilho - (dinheiroPerdido - reducaoPerda)
 
-                var valorkgMS = milhokg * precoms
-                valorRegiao = valorkgMS
-
-                var PerdaporcentualMS = 15
-                porcentagemperda = PerdaporcentualMS
-
-                var perdaMS = valorkgMS * 0.15
-                perdaRegiao = perdaMS
-
-                var lucroMS = valorkgMS - perdaMS
-                lucroRegiao = lucroMS
-
-                var reducaoPerdaMs = valorkgMS - (perdaMS * 0.10)
-                reducaoRegiao = reducaoPerdaMs
-            }
-
-            if(estado == "GOiás" ) {
-
-                precoRegiao = precoGoias
-
-                var valorkgG = milhokg * precoGoias
-                valorRegiao = valorkgG
-
-                var PerdaporcentualGO = 10
-                porcentagemperda = PerdaporcentualGO
-
-                var perdaGO = valorkg * 0.10
-                perdaRegiao = perdaGO
-
-                var lucroGo = valorkgG - perdaGO 
-                lucroRegiao = lucroGo
-
-                var reducaoPerdaGO = valorkgG - (perdaGO * 0.10)
-                reducaoRegiao = reducaoPerdaGO
-            }
-            if(estado == "Paraná" ) {
-
-                precoRegiao = precoparana
-
-                var valorkgP = milhokg * precoparana
-                valorRegiao = valorkgP
-
-                var PerdaporcentualPR= 20
-                porcentagemperda = PerdaporcentualPR
-
-                var perdaPA = valorkgP * 0.20
-                perdaRegiao = perdaPA
-
-                var lucroPA = valorRegiao - perdaPA
-                lucroRegiao = lucroPA
-
-                var reducaoPerdaPA = valorkgP - (perdaPA * 0.10)
-                reducaoRegiao = reducaoPerdaPA
-            }
+        
 
 
             exibir.innerHTML = `
-            No Estado de ${estado} o preço do milho por kg está R$${precoRegiao}, ou seja, vendendo ${milhokg}kg você poderá obter R$${valorRegiao},
-            porém terá uma perda estimada na produção de milho de ${porcentagemperda}% correspondendo à R$${perdaRegiao} perdidos, totalizando apenas R$${lucroRegiao} de lucro. Com o nosso projeto você terá um lucro de R$${reducaoRegiao} `
+            No Estado de ${estado} o preço do milho por kg está R$${precoKg}, ou seja, armazenando ${milhokg}kg você poderá obter R$${valorTotalMilho},
+            porém terá uma perda total na produção de milho de ${porcentagemperda}% correspondendo à ${perdaMilho}kg de milhos perdidos, equivalendo á R$${dinheiroPerdido},
+            totalizando ao final apenas R$${valorMilhoPerda} obtidos. Com o nosso projeto iremos reduzir 10% da perda total, ou seja, R$${reducaoPerda},
+            totalizando ao final R$${reducaoTotalDinheiro} obtidos `
            
 
         }
