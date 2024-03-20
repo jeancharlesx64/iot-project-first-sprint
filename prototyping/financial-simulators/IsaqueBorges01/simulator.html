@@ -12,7 +12,7 @@
       font-family: Arial, sans-serif;
       margin: 0;
       padding: 0;
-      background-image: url('https://img.freepik.com/fotos-premium/plantacoes-de-batata-crescem-no-campo-fileiras-de-vegetais-agricultura-agricultura-panorama_72572-50.jpg');
+      background-image: url('https://blog.sensix.ag/wp-content/uploads/2021/07/image-23.png');
       background-repeat: no-repeat;
       background-attachment: fixed;
       background-position: center;
@@ -24,14 +24,17 @@
     }
 
     .container {
-      max-width: 600px;
+      max-width: 400px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
       padding: 20px;
       border-radius: 5px;
-      background-color: rgba(37, 37, 37, 0.5);
+      background-color: rgba(155, 143, 143, 0.5);
       color: white;
       font-style: italic;
-      backdrop-filter: blur(10px);
-      flex-direction: column;
+      backdrop-filter: blur(5px);  
+      flex-direction: column; 
       /* Ajustar o raio de desfoque conforme necessário */
 
     }
@@ -40,11 +43,12 @@
       border-radius: 12px;
       height: 40px;
       width: 190px;
+    
     }
 
     .select {
+      display: flex;
       border-radius: 12px;
-     
       height: 40px;
       width: 190px;
       
@@ -57,13 +61,12 @@
       background-color: white;
       color: black;
       border-radius: 25px;
-      transition: 0.5S;
+      transition: 0.3S;
     }
 
     .botao:hover{
       background-color: green;  
       border-radius: 25px;
-    
     }
 
   </style>
@@ -91,7 +94,7 @@
 
     Selecione o estado para o serviço: <br> <br>
     <select class="select" id="sel_estado">
-      <option value="sp">Selecione seu estado</option>
+      <option value="sl">Selecione seu estado</option>
       <option value="sp">São Paulo</option>
       <option value="ms">Mato Grosso do Sul</option>
       <option value="pr">Paraná</option>
@@ -116,7 +119,6 @@
     var nome = nome_cliente.value
     var estado = sel_estado.value
     var mensagem = ''
-
 
 
     // faz uma verificação, caso seja verdade, entra no if. Senão faz uma nova verificação no else if, caso nenhum seja verdadeiro, entra no else
@@ -183,7 +185,9 @@
             Com o nosso serviço, você economizará aproximadamente R$${(preco * 0.10).toFixed(2)}<br><br>
             Vamos fechar negócio?</i>`
 
-    } else {
+    }else if (estado == 'sl'){
+        mensagem = `Por favor, selecione um Estado válido`
+    }  else {
 
       var preco = quilo * 1.32 
       mensagem = `<br><i>Ola ${nome}, no estado de ${estado.toUpperCase()}:<br><br>
