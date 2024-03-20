@@ -100,7 +100,7 @@ main{
     box-shadow: -5px 5px 15px rgba(0, 0, 0, 0.103);
 }
 .response-container{
-    height: 250px; /* 280 smaller, then 800 */ 
+    height:330px; /* 280 smaller, then 800 */ 
     width: 100%;
     background-color: #eeeeee;
     padding-top: 20px;

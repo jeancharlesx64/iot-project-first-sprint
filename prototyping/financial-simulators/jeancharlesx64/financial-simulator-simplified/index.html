@@ -32,14 +32,14 @@
                 <input type="number" id="txt_pesoEspiga">
             </div>
         </div>  
-        <div class="row-input">
+        <div class="row-input last-row">
             <div class="col-input">
                 <label class="lbl-question">Umidade dos grãos(%):</label>
-                <input type="number" id="txt_qtdUmidadePercentual">
+                <input type="number" id="txt_qtdUmidadePercentual" placeholder="opicional*">
             </div>
             <div class="col-input">
                 <label class="lbl-question">Temperatura dos grãos(C°):</label>
-                <input type="number" id="txt_temperaturaCelcius">
+                <input type="number" id="txt_temperaturaCelcius" placeholder="opicional*">
             </div>
         </div>
         <button class="btn-calcular" onclick="calcular()">CALCULAR</button>
@@ -72,7 +72,14 @@
 
             // calculando a real produtividade em KG por hectare
             // (considerando as perdas pela umidade elevada)
-            var realProdutividadeKgHa = potencialProdutividadeKgHa * (100 - umidadePercentual) / (100 - 13); 
+            var realProdutividadeKgHa;
+            if(umidadePercentual != ''){
+                realProdutividadeKgHa = potencialProdutividadeKgHa * (100 - umidadePercentual) / (100 - 13);  // considerando a porcentagem definida pelo usuário 
+                //caso o usuário possua um monitoramento prévio
+            }else{
+                realProdutividadeKgHa = potencialProdutividadeKgHa * (100 - 60) / (100 - 13);  // considerando 60% de umidade caso não for definido pelo usuário
+                // 60% de umidade é a média relativa do ar (sem termometria)
+            }
 
             // retirando os 10% de perdas que ocorrem por outros motivos da produtividade real do produtor
             // 20% da produção total é perdido, enquanto 50% das perdas é pela umidade
@@ -131,6 +138,10 @@
             if(temperaturaCelsius > 30){
                 qualidadeGrao = `baixa`;
                 qualidadeGraoFrase = 'Temperatura muito elevada pode agravar as perdas em até 40%';
+            }
+            if(temperaturaCelsius == 0){
+                qualidadeGrao = 'duvidosa'
+                qualidadeGraoFrase = 'Se não houver termometria no seu armazém, a qualidade do seu grão não SERVE para o consumo';
             }
 
 
