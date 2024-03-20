@@ -14,6 +14,7 @@
       padding: 0;
       background-image: url('https://img.freepik.com/fotos-premium/plantacoes-de-batata-crescem-no-campo-fileiras-de-vegetais-agricultura-agricultura-panorama_72572-50.jpg');
       background-repeat: no-repeat;
+      background-attachment: fixed;
       background-position: center;
       background-size: cover;
       display: flex;
@@ -30,31 +31,41 @@
       color: white;
       font-style: italic;
       backdrop-filter: blur(10px);
+      flex-direction: column;
       /* Ajustar o raio de desfoque conforme necessário */
 
     }
 
     input {
       border-radius: 12px;
-      text-align: center;
       height: 40px;
       width: 190px;
     }
 
     .select {
       border-radius: 12px;
-      text-align: center;
+     
       height: 40px;
       width: 190px;
+      
     }
 
     .botao {
       height: 30px;
       width: 150px;
       margin-top: 20px;
-      background-color: green;
-      color: white;
+      background-color: white;
+      color: black;
+      border-radius: 25px;
+      transition: 0.5S;
     }
+
+    .botao:hover{
+      background-color: green;  
+      border-radius: 25px;
+    
+    }
+
   </style>
 </head>
 
@@ -64,39 +75,15 @@
     <h2><i>Seja bem vindo ao nosso simulador financeiro!</i></h2>
     <h2><i>Antes de começar, vamos preencher algumas informações:</i></h2><br><br>
     
-    <div style="display:flex; justify-content: space-between;">
+    <div style="display:flex; justify-content: space-between; flex-direction: column;">
       <div>
          Insira seu nome: <br><br>
         <input placeholder="Ex: Maria" id="nome_cliente">
-      </div>
-
-      <div style="margin-left: 85px;">
-         Insira seu número para contato: <br><br>
-        <input placeholder="Ex: 11923484293" id="contato_usuario">
-      </div>
-    </div> <br><br>
+      </div><br><br>
 
 
-    <div style="display:flex; justify-content: space-between;">
+    <div style="display:flex; justify-content: space-between; flex-direction: column;">
       <div>
-        Insira quantas plantas por hectare: <br> <br>
-        <input placeholder="Plantas por hectare" id="plantas_hec">
-      </div>
-
-      <div style="margin-left: 130px;">
-          Insira a Média de espigas por planta: <br> <br>
-        <input placeholder="Espigas por plantas(media)" id="media_plantas">
-      </div>
-    </div> <br><br>
-
-
-    <div style="display:flex; justify-content: space-between;">
-      <div>
-         Peso Médio dos grãos por espiga(kg): <br> <br>
-        <input placeholder="Peso das espiga" id="graos_espiga">
-      </div>
-
-      <div style="margin-left: 90px;">
          Quantidade de milho armazenada: <br> <br>
         <input placeholder="0Kg" id="qtd_kg">
       </div>
@@ -129,10 +116,6 @@
     var nome = nome_cliente.value
     var estado = sel_estado.value
     var mensagem = ''
-    var plantas = Number(plantas_hec.value)
-    var media = Number(media_plantas.value)
-    var graos = Number(graos_espiga.value)
-    var produtividade = plantas * media * graos
 
 
 
@@ -142,7 +125,6 @@
       var preco = quilo * 1.28 // calcula o preço com base nos quilogramas
       mensagem = `<br><i>Ola ${nome}, no estado de ${estado.toUpperCase()}:<br><br>
         Seu lucro com base no total de quilogramas, deveria ser R$${(preco).toFixed(2)}<br><br>
-            Sua produtividade é de ${produtividade} kg/ha<br><br> 
             A estimativa de perda em ${estado.toUpperCase()} é de 8%, reduzindo seu lucro para R$${(preco * 0.92).toFixed(2)}<br><br>
             Com o nosso serviço, você economizará aproximadamente R$${(preco * 0.08).toFixed(2)}<br><br>
             Vamos fechar negócio?</i>`
@@ -152,7 +134,6 @@
       var preco = quilo * 1.34 
       mensagem = `<br><i>Ola ${nome}, no estado de ${estado.toUpperCase()}:<br><br>
         Seu lucro com base no total de quilogramas, deveria ser R$${(preco).toFixed(2)}<br><br>
-            Sua produtividade é de ${produtividade} kg/ha<br><br>
             A estimativa de perda em ${estado.toUpperCase()} é de 15%, reduzindo seu lucro para R$${(preco * 0.85).toFixed(2)}<br><br>
             Com o nosso serviço, você economizará aproximadamente R$${(preco * 0.15).toFixed(2)}<br><br>
             Vamos fechar negócio?</i>`
@@ -162,7 +143,6 @@
       var preco = quilo * 1.36 
       mensagem = `<br><i>Ola ${nome}, no estado de ${estado.toUpperCase()}:<br><br>
         Seu lucro com base no total de quilogramas, deveria ser R$${(preco).toFixed(2)}<br><br>
-            Sua produtividade é de ${produtividade} kg/ha<br><br> 
             A estimativa de perda em ${estado.toUpperCase()} é de 20%, reduzindo seu lucro para R$${(preco * 0.80).toFixed(2)}<br><br>
             Com o nosso serviço, você economizará aproximadamente R$${(preco * 0.20).toFixed(2)}<br><br>
             Vamos fechar negócio?</i>`
@@ -172,7 +152,6 @@
       var preco = quilo * 1.40 
       mensagem = `<br><i>Ola ${nome}, no estado de ${estado.toUpperCase()}:<br><br>
         Seu lucro com base no total de quilogramas, deveria ser R$${(preco).toFixed(2)}<br><br>
-            Sua produtividade é de ${produtividade} kg/ha<br><br> 
             A estimativa de perda em ${estado.toUpperCase()} é de 7%, reduzindo seu lucro para R$${(preco * 0.93).toFixed(2)}<br><br>
             Com o nosso serviço, você economizará aproximadamente R$${(preco * 0.07).toFixed(2)}<br><br>
             Vamos fechar negócio?</i>`
@@ -182,7 +161,6 @@
       var preco = quilo * 1.35 
       mensagem = `<br><i>Ola ${nome}, no estado de ${estado.toUpperCase()}:<br><br>
         Seu lucro com base no total de quilogramas, deveria ser R$${(preco).toFixed(2)}<br><br>
-            Sua produtividade é de ${produtividade} kg/ha<br><br>
             A estimativa de perda em ${estado.toUpperCase()} é de 10%, reduzindo seu lucro para R$${(preco * 0.90).toFixed(2)}<br><br>
             Com o nosso serviço, você economizará aproximadamente R$${(preco * 0.10).toFixed(2)}<br><br>
             Vamos fechar negócio?</i>`
@@ -192,7 +170,6 @@
       var preco = quilo * 1.30 
       mensagem = `<br><i>Ola ${nome}, no estado de ${estado.toUpperCase()}:<br><br>
         Seu lucro com base no total de quilogramas, deveria ser R$${(preco).toFixed(2)}<br><br>
-            Sua produtividade é de ${produtividade} kg/ha<br><br>
             A estimativa de perda em ${estado.toUpperCase()} é de 18%, reduzindo seu lucro para R$${(preco * 0.82).toFixed(2)}<br><br>
             Com o nosso serviço, você economizará aproximadamente R$${(preco * 0.18).toFixed(2)}<br><br>
             Vamos fechar negócio?</i>`
@@ -202,7 +179,6 @@
       var preco = quilo * 1.50 
       mensagem = `<br><i>Ola ${nome}, no estado de ${estado.toUpperCase()}:<br><br>
          Seu lucro com base no total de quilogramas, deveria ser R$${(preco).toFixed(2)}<br><br>
-            Sua produtividade é de ${produtividade} kg/ha<br><br>
             A estimativa de perda em ${estado.toUpperCase()} é de 10%, reduzindo seu lucro para R$${(preco * 0.90).toFixed(2)}<br><br>
             Com o nosso serviço, você economizará aproximadamente R$${(preco * 0.10).toFixed(2)}<br><br>
             Vamos fechar negócio?</i>`
@@ -212,7 +188,6 @@
       var preco = quilo * 1.32 
       mensagem = `<br><i>Ola ${nome}, no estado de ${estado.toUpperCase()}:<br><br>
         Seu lucro com base no total de quilogramas, deveria ser R$${(preco).toFixed(2)}<br><br>
-            Sua produtividade é de ${produtividade} kg/ha<br><br>
             A estimativa de perda em ${estado.toUpperCase()} é de 12%, reduzindo seu lucro para R$${(preco * 0.88).toFixed(2)}<br><br>
             Com o nosso serviço, você economizará aproximadamente R$${(preco * 0.12).toFixed(2)}<br><br>
             Vamos fechar negócio?</i>`
