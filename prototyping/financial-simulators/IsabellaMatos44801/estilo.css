@@ -1,0 +1,24 @@
+body {
+    display: flex;
+    margin: auto;
+    background-image: url("https://p2.trrsf.com/image/fget/cf/1200/900/middle/images.terra.com/2023/06/19/como-fazer-milho-cozido-u85necz3xhdf.jpg");
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    font-size: 15px;
+    color: black;
+}
+
+input, button {
+    flex-direction: column;
+
+    justify-content: center;
+    align-items: center;
+    font-size: 15px;
+    color: black;
+    
+}
+
+button {
+    background-color: green;
+}

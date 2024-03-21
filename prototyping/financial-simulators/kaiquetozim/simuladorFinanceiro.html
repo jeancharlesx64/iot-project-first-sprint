@@ -1,15 +1,18 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <link rel="stylesheet" href="style.css"> 
 </head>
+
 <body>
 
-    <h1> GUARD TECH </h1> 
+    <h1> GUARD TECH </h1>
 
+<<<<<<< HEAD
 <div id="container">
     <div id="parent">
     <h2>CALCULADORA FINANCEIRA</h2>
@@ -39,12 +42,54 @@
     </div>
  </div>         
    
+=======
+    <div>
+
+        <h2 class="classe1">CALCULADORA FINANCEIRA</h2>
+
+        <div class="classe2">
+            <h3>Quantidade de milho em (kg) armazenada</h3>
+            <input class="classe3" min=1 type="number" placeholder="0kg" id="input_qtdMilho">
+            <br><br>
+        </div>
+
+
+        <div class="classe4">
+            <h3>Selecione o Estado</h3>
+            <select id="estado_id">
+                <option value="GO"> Goiás</option>
+                <option value="MG"> Minas Gerais</option>
+                <option value="MT"> Mato Grosso</option>
+                <option value="MS"> Mato Grosso Do Sul</option>
+                <option value="PR"> Paraná</option>
+                <option value="SP"> São Paulo</option>
+        </div>
+
+        </select>
+        <br><br>
+        <button class="classe6" onclick="perdas()">
+            Calcular Perdas
+        </button>
+        <br><br>
+
+
+
+        <span id="exibir"></span>
+
+
+    </div>
+
+
+
+>>>>>>> 060388a83bdcdaf2bee7e5dbb24c9f334824d80e
 </body>
+
 </html>
 
-    <script>
-        function perdas() {
+<script>
+    function perdas() {
 
+<<<<<<< HEAD
             var milhokg = Number(input_qtdMilho.value)  // variavel para receber a quantidade milho armazenada
             var estado = estado_id.value // variavel para receber o estado selecionado
             
@@ -54,9 +99,30 @@
            var porcentagemperda = 0 // variavel para receber a porcentagem de perda no armazém do grão em cada região, para usar no inner
            var perdaMilho = 0    // variavel para receber a perda da produção do grão, para usar no inner
            var reducaoPerda = 0  // variavel para receber o dinheiro perdido na produção do armazenamento, para usar no inner 
+=======
+        var milhokg = Number(input_qtdMilho.value)
+        var estado = estado_id.value
 
-            if(estado == "SP" ) {
+        var precoKgSp = 1.28 //perda 8%
+        var precoKgMg = 1.50 //perda 10%
+        var precoKgMt = 1.40 //perda 7%
+        var precoKgMs = 1.34  //perda 15%
+        var precoKgGo = 1.35//perda 10%
+        var precoKgPR = 1.36//perda 20%
 
+        var valorTotalMilho = 0
+        var perdaMilho = 0
+        var dinheiroPerdido = 0
+        var reducaoPerda = 0
+        var precoKg = 0
+        var valorMilhoPerda = 0
+        var porcentagemperda = 0
+        var reducaoTotalDinheiro = 0
+>>>>>>> 060388a83bdcdaf2bee7e5dbb24c9f334824d80e
+
+        if (estado == "SP") {
+
+<<<<<<< HEAD
                 precoKg = 1.28
                 valorTotalMilho = milhokg * precoKg
                 porcentagemperda = 4
@@ -117,3 +183,108 @@
         }
     </script>
     
+=======
+            precoKg = precoKgSp
+
+            valorTotalMilho = milhokg * precoKgSp
+
+            porcentagemperda = 8
+
+            perdaMilho = milhokg * 0.08
+
+            dinheiroPerdido = valorTotalMilho * 0.08
+
+            valorMilhoPerda = valorTotalMilho - dinheiroPerdido
+
+            reducaoPerda = dinheiroPerdido * 0.10
+
+            reducaoTotalDinheiro = valorTotalMilho - (dinheiroPerdido - reducaoPerda)
+
+        } else if (estado == "MG") {
+
+            precoKg = precoKgMg
+
+            valorTotalMilho = milhokg * precoKgMg
+
+            porcentagemperda = 10
+
+            perdaMilho = milhokg * 0.10
+
+            dinheiroPerdido = valorTotalMilho * 0.10
+
+            valorMilhoPerda = valorTotalMilho - dinheiroPerdido
+
+            reducaoPerda = dinheiroPerdido * 0.10
+
+            reducaoTotalDinheiro = valorTotalMilho - (dinheiroPerdido - reducaoPerda)
+
+        } else if (estado == "MT") {
+
+            precoKg = precoKgMt
+
+            valorTotalMilho = milhokg * precoKgMt
+
+            porcentagemperda = 7
+
+            perdaMilho = milhokg * 0.07
+
+            dinheiroPerdido = valorTotalMilho * 0.07
+
+
+        } else if (estado == "MS") {
+
+            precoKg = precoKgMs
+
+            valorTotalMilho = milhokg * precoKgMs
+
+            porcentagemperda = 15
+
+            perdaMilho = milhokg * 0.15
+
+            dinheiroPerdido = valorTotalMilho * 0.15
+
+        } else if (estado == "GO") {
+
+            precoKg = precoKgGo
+
+            valorTotalMilho = milhokg * precoKgGo
+
+            porcentagemperda = 10
+
+            perdaMilho = milhokg * 0.10
+
+            dinheiroPerdido = valorTotalMilho * 0.10
+
+        } else {
+
+            precoKg = precoKgPR
+
+            valorTotalMilho = milhokg * precoKgPR
+
+            porcentagemperda = 20
+
+            perdaMilho = milhokg * 0.20
+
+            dinheiroPerdido = valorTotalMilho * 0.20
+
+        }
+
+        valorMilhoPerda = valorTotalMilho - dinheiroPerdido
+
+        reducaoPerda = dinheiroPerdido * 0.10
+
+        reducaoTotalDinheiro = valorTotalMilho - (dinheiroPerdido - reducaoPerda)
+
+
+
+
+        exibir.innerHTML = `
+            No Estado de ${estado} o preço do milho por kg está R$${precoKg}, ou seja, armazenando ${milhokg}kg você poderá obter R$${valorTotalMilho.toFixed(2)},
+            porém terá uma perda total na produção de milho de ${porcentagemperda}% correspondendo à ${perdaMilho}kg de milhos perdidos, equivalendo á R$${dinheiroPerdido.toFixed(2)},
+            totalizando ao final apenas R$${valorMilhoPerda.toFixed(2)} obtidos. Com o nosso projeto iremos reduzir 10% da perda total, ou seja, R$${reducaoPerda.toFixed(2)},
+            totalizando ao final R$${reducaoTotalDinheiro.toFixed(2)} obtidos `
+
+
+    }
+</script>
+>>>>>>> 060388a83bdcdaf2bee7e5dbb24c9f334824d80e

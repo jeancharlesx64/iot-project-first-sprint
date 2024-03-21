@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Financeiro</title>
+    <link rel="stylesheet" href="estilo.css"> <!-- Link do CSS externo -->
+
+</head>
+<body>
+    <div class="center"> <!-- div criada para estilização -->
+        <h1 class="center">Plantas por hectare:</h1>
+    <input id="input_plantasHectare"; placeholder="1000"><br>
+
+    <h1 class="center">Espigas por planta:</h1>
+    <input id="input_espigasPlanta"; placeholder="3"><br>
+
+    <h1 class="center">Média de grãos por espiga:</h1>
+    <input id="input_graosEspiga", placeholder="0.170"><br>
+
+    <h1 class="center">Umidade do milho:</h1>
+    <input id="input_umidadeMilho"; placeholder="16"><br>
+    
+    <button onclick="calcularProdutividade()">Calcular Produtividade</button>
+    <div class="center" id="resultado"></div>
+</div>
+
+
+</body>
+</html>
+<script>
+function calcularProdutividade(){
+var plantasHectare = Number (input_plantasHectare.value)
+var espigasPlanta = Number (input_espigasPlanta.value)
+var graosEspiga = Number (input_graosEspiga.value)
+var umidadeMilho = Number (input_umidadeMilho.value)
+
+var Produtividade
+var pesoInicial
+var projeto
+
+if (umidadeMilho <=13) { // Se a umidade milho for inferior a 13, não há grandes perdas
+    Produtividade = plantasHectare * espigasPlanta * graosEspiga
+    resultado.innerHTML = `Com ${plantasHectare} de plantas por hectare, e ${espigasPlanta} espigas por planta, sua lucratividade é R$${Produtividade}.`;
+    }
+
+    else { // se a umidade do milho for superior a 13, a estimativa de perda aumenta em 12%
+        Produtividade = plantasHectare * espigasPlanta * graosEspiga
+        pesoInicial = Produtividade * (100 - umidadeMilho) / (100 - 13)
+        projeto = pesoInicial * 0.12
+        resultado.innerHTML = `Considerando a umidade do milho, sua lucratividade ajustada é R$${pesoInicial.toFixed(0)}. Com nosso projeto, você economizará R$${parseFloat(projeto.toFixed(0))}`;
+}
+
+}
+</script>

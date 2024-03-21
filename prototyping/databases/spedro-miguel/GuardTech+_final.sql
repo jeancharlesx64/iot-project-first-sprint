@@ -1,5 +1,5 @@
-create database milho; -- criando banco de dados milho
-use milho; -- acessando banco de dados milho
+create database GuardTech; -- criando banco de dados GuardTech
+use GuardTech; -- acessando banco de dados GuardTech
 
 create table cliente ( -- criando tabela cliente
 	idCliente int primary key auto_increment,
@@ -80,48 +80,11 @@ select * from armazem where descricao like '%silo%'; -- exibir os dados da tabel
 select * from registro where dataHoraReg like '%3_'; -- exibir os dados da tabela registro onde o penúltimo número é 3 da dataHoraReg
 select * from sensor where tipoSensor like '_e%'; -- exibir os dados da tabela sensor onde a segunda letra é 'e' do tipoSensor
 
-select nome from cliente order by nome; -- exibir a tupla nome da tabela cliente ordenado de forma crescente
-select tipo from armazem order by tipo desc; -- exibir a tupla tipo da tabela armazem ordenado de forma decrescente
-
-delete from registro where idRegistro = 3; -- deletando os dados da tabela registro onde o idRegistro é 3
-select * from registro;
-
 update cliente set complemento = 'Bloco 5 AP 21' where idCliente = 2; -- atualizando o complemento do cliente com idCliente 2
 select complemento from cliente where idCliente = 2; -- exibindo o complemento do cliente com idCliente 2
-
-update armazem set numero = '22' where idArmazem = 3; -- atualizando o número do armazem onde idArmazem é 3
-select numero from armazem where idArmazem = 3; -- exibindo o número do armazem onde idArmazem é 3
-
-update sensor set statusSensor = 'ativado' where idSensor = 2; -- atualizando statusSensor de sensor onde idSensor é 2
-select statusSensor from sensor where idSensor = 2; -- exibindo statusSensor de sensor onde idSensor é 2
-
-update registro set lm35_temperatura = 11.76 where idRegistro = 1; -- atualizando lm35_temperatura de registro onde idRegistro é 1
-select lm35_temperatura from registro where idRegistro = 1; -- exibindo lm35_temperatura de registro onde idRegistro é 1
 
 alter table cliente modify column estado char(2); -- alterando a tabela cliente, modificando a coluna estado para char(2)
 desc cliente;
 
-alter table sensor add column qtdSensor int; -- alterando a tabela sensor, adicionando a coluna qtdSensor int
-desc sensor;
-alter table sensor drop column qtdSensor; -- alterando a tabela sensor, excluindo a coluna qtdSensor
-
-alter table registro rename column dataHoraReg to dataHora; -- alterando a tabela, renomeando a coluna para dataHora
-desc registro;
-
-truncate table cliente; -- limpar a tabela cliente por completo
-select * from cliente;
-drop table cliente; -- excluindo a tabela cliente
-
-truncate table armazem; -- limpar a tabela armazem por completo
-select * from armazem;
-drop table armazem; -- excluindo a tabela armazem
-
-truncate table sensor; -- limpar a tabela sensor por completo
-select * from sensor;
-drop table sensor; -- excluindo a tabela sensor
-
-truncate registro; -- limpar a tabela registro por completo
+delete from registro where idRegistro = 3; -- deletando os dados da tabela registro onde o idRegistro é 3
 select * from registro;
-drop table registro; -- excluindo a tabela registro
-
-show tables;

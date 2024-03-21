@@ -1,0 +1,204 @@
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title></title>
+
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+      background-image: url('https://blog.sensix.ag/wp-content/uploads/2021/07/image-23.png');
+      background-repeat: no-repeat;
+      background-attachment: fixed;
+      background-position: center;
+      background-size: cover;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      height: 130vh;
+    }
+
+    .container {
+      max-width: 400px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      padding: 20px;
+      border-radius: 5px;
+      background-color: rgba(155, 143, 143, 0.5);
+      color: white;
+      font-style: italic;
+      backdrop-filter: blur(5px);  
+      flex-direction: column; 
+      /* Ajustar o raio de desfoque conforme necessário */
+
+    }
+
+    input {
+      border-radius: 12px;
+      height: 40px;
+      width: 190px;
+    
+    }
+
+    .select {
+      display: flex;
+      border-radius: 12px;
+      height: 40px;
+      width: 190px;
+      
+    }
+
+    .botao {
+      height: 30px;
+      width: 150px;
+      margin-top: 20px;
+      background-color: white;
+      color: black;
+      border-radius: 25px;
+      transition: 0.3S;
+    }
+
+    .botao:hover{
+      background-color: green;  
+      border-radius: 25px;
+    }
+
+  </style>
+</head>
+
+<body>
+
+  <div class="container">
+    <h2><i>Seja bem vindo ao nosso simulador financeiro!</i></h2>
+    <h2><i>Antes de começar, vamos preencher algumas informações:</i></h2><br><br>
+    
+    <div style="display:flex; justify-content: space-between; flex-direction: column;">
+      <div>
+         Insira seu nome: <br><br>
+        <input placeholder="Ex: Maria" id="nome_cliente">
+      </div><br><br>
+
+
+    <div style="display:flex; justify-content: space-between; flex-direction: column;">
+      <div>
+         Quantidade de milho armazenada: <br> <br>
+        <input placeholder="0Kg" id="qtd_kg">
+      </div>
+    </div> <br><br>
+
+    Selecione o estado para o serviço: <br> <br>
+    <select class="select" id="sel_estado">
+      <option value="sl">Selecione seu estado</option>
+      <option value="sp">São Paulo</option>
+      <option value="ms">Mato Grosso do Sul</option>
+      <option value="pr">Paraná</option>
+      <option value="mt">Mato grosso</option>
+      <option value="go">Goiás</option>
+      <option value="rs">Rio Grande do Sul</option>
+      <option value="mg">Minas Gerais</option>
+      <option value="ba">Bahia</option>
+
+    </select>
+    <br> <br>
+    <button class="botao" onclick="calcular()">Calcular perdas</button> <br> <br>
+    <span id="exibir"></span>
+  </div>
+
+</body>
+
+</html>
+<script>
+  function calcular() {
+    var quilo = Number(qtd_kg.value)
+    var nome = nome_cliente.value
+    var estado = sel_estado.value
+    var mensagem = ''
+
+
+    // faz uma verificação, caso seja verdade, entra no if. Senão faz uma nova verificação no else if, caso nenhum seja verdadeiro, entra no else
+    if (estado == 'sp') {
+
+      var preco = quilo * 1.28 // calcula o preço com base nos quilogramas
+      mensagem = `<br><i>Ola ${nome}, no estado de ${estado.toUpperCase()}:<br><br>
+        Seu lucro com base no total de quilogramas, deveria ser R$${(preco).toFixed(2)}<br><br>
+            A estimativa de perda em ${estado.toUpperCase()} é de 8%, reduzindo seu lucro para R$${(preco * 0.92).toFixed(2)}<br><br>
+            Com o nosso serviço, você economizará aproximadamente R$${(preco * 0.08).toFixed(2)}<br><br>
+            Vamos fechar negócio?</i>`
+
+    } else if (estado == 'ms') {
+
+      var preco = quilo * 1.34 
+      mensagem = `<br><i>Ola ${nome}, no estado de ${estado.toUpperCase()}:<br><br>
+        Seu lucro com base no total de quilogramas, deveria ser R$${(preco).toFixed(2)}<br><br>
+            A estimativa de perda em ${estado.toUpperCase()} é de 15%, reduzindo seu lucro para R$${(preco * 0.85).toFixed(2)}<br><br>
+            Com o nosso serviço, você economizará aproximadamente R$${(preco * 0.15).toFixed(2)}<br><br>
+            Vamos fechar negócio?</i>`
+
+    } else if (estado == 'pr') {
+
+      var preco = quilo * 1.36 
+      mensagem = `<br><i>Ola ${nome}, no estado de ${estado.toUpperCase()}:<br><br>
+        Seu lucro com base no total de quilogramas, deveria ser R$${(preco).toFixed(2)}<br><br>
+            A estimativa de perda em ${estado.toUpperCase()} é de 20%, reduzindo seu lucro para R$${(preco * 0.80).toFixed(2)}<br><br>
+            Com o nosso serviço, você economizará aproximadamente R$${(preco * 0.20).toFixed(2)}<br><br>
+            Vamos fechar negócio?</i>`
+
+    } else if (estado == 'mt') {
+
+      var preco = quilo * 1.40 
+      mensagem = `<br><i>Ola ${nome}, no estado de ${estado.toUpperCase()}:<br><br>
+        Seu lucro com base no total de quilogramas, deveria ser R$${(preco).toFixed(2)}<br><br>
+            A estimativa de perda em ${estado.toUpperCase()} é de 7%, reduzindo seu lucro para R$${(preco * 0.93).toFixed(2)}<br><br>
+            Com o nosso serviço, você economizará aproximadamente R$${(preco * 0.07).toFixed(2)}<br><br>
+            Vamos fechar negócio?</i>`
+
+    } else if (estado == 'go') {
+
+      var preco = quilo * 1.35 
+      mensagem = `<br><i>Ola ${nome}, no estado de ${estado.toUpperCase()}:<br><br>
+        Seu lucro com base no total de quilogramas, deveria ser R$${(preco).toFixed(2)}<br><br>
+            A estimativa de perda em ${estado.toUpperCase()} é de 10%, reduzindo seu lucro para R$${(preco * 0.90).toFixed(2)}<br><br>
+            Com o nosso serviço, você economizará aproximadamente R$${(preco * 0.10).toFixed(2)}<br><br>
+            Vamos fechar negócio?</i>`
+
+    } else if (estado == 'rs') {
+
+      var preco = quilo * 1.30 
+      mensagem = `<br><i>Ola ${nome}, no estado de ${estado.toUpperCase()}:<br><br>
+        Seu lucro com base no total de quilogramas, deveria ser R$${(preco).toFixed(2)}<br><br>
+            A estimativa de perda em ${estado.toUpperCase()} é de 18%, reduzindo seu lucro para R$${(preco * 0.82).toFixed(2)}<br><br>
+            Com o nosso serviço, você economizará aproximadamente R$${(preco * 0.18).toFixed(2)}<br><br>
+            Vamos fechar negócio?</i>`
+
+    } else if (estado == 'mg') {
+
+      var preco = quilo * 1.50 
+      mensagem = `<br><i>Ola ${nome}, no estado de ${estado.toUpperCase()}:<br><br>
+         Seu lucro com base no total de quilogramas, deveria ser R$${(preco).toFixed(2)}<br><br>
+            A estimativa de perda em ${estado.toUpperCase()} é de 10%, reduzindo seu lucro para R$${(preco * 0.90).toFixed(2)}<br><br>
+            Com o nosso serviço, você economizará aproximadamente R$${(preco * 0.10).toFixed(2)}<br><br>
+            Vamos fechar negócio?</i>`
+
+    }else if (estado == 'sl'){
+        mensagem = `Por favor, selecione um Estado válido`
+    }  else {
+
+      var preco = quilo * 1.32 
+      mensagem = `<br><i>Ola ${nome}, no estado de ${estado.toUpperCase()}:<br><br>
+        Seu lucro com base no total de quilogramas, deveria ser R$${(preco).toFixed(2)}<br><br>
+            A estimativa de perda em ${estado.toUpperCase()} é de 12%, reduzindo seu lucro para R$${(preco * 0.88).toFixed(2)}<br><br>
+            Com o nosso serviço, você economizará aproximadamente R$${(preco * 0.12).toFixed(2)}<br><br>
+            Vamos fechar negócio?</i>`
+
+    }
+
+    // exibe o conteúdo da variável mensagem.
+    exibir.innerHTML = mensagem
+  }
+</script>

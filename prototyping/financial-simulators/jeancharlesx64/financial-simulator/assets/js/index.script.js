@@ -10,7 +10,7 @@ btnProductivity.addEventListener('click', function(){
 
 
     // verificando campos vazios
-    if(amountHectare != '' && plantAmountSq != '' && cobAmount != '' && cobWeightG != '' && humidityPercentage != '' && celciusDegree != ''){
+    if(amountHectare != '' && plantAmountSq != '' && cobAmount != '' && cobWeightG != ''){
         var plantAmountHectare = plantAmountSq * 10000; // convertendo as plantas por metro quadrado em plantas por hectares
         var cobWeightKg = cobWeightG/1000;  // convertendo o peso da espiga de gramas para kg   
 
@@ -24,8 +24,14 @@ btnProductivity.addEventListener('click', function(){
 
         // calculando a real produtividade em KG por hectare
         // (considerando as perdas pela umidade elevada)
-        var realProductivity = potentialProductivity * (100 - humidityPercentage) / (100 - 13);
-
+        var realProductivity;
+        if(humidityPercentage != 0){
+            realProductivity = potentialProductivity * (100 - humidityPercentage) / (100 - 13);  // considerando a porcentagem definida pelo usuário 
+            //caso o usuário possua um monitoramento prévio (Sem automação)
+        }else{
+            realProductivity = potentialProductivity * (100 - 60) / (100 - 13); // considerando 60% de umidade caso não for definido pelo usuário
+            // 60% de umidade é a média relativa do ar (sem termometria)
+        }
         // retirando os 10% de perdas que ocorrem por outros motivos da produtividade real do produtor
         // 20% da produção total é perdido, enquanto 50% das perdas é pela umidade/temperatura
         // ou seja, 10% da produção total é perdido pela umidade e temperatura e outros 10% perdido por outros fatores
@@ -72,6 +78,12 @@ btnProductivity.addEventListener('click', function(){
         }else{
             grainQuality = `baixa`;
             grainQualitySentence = 'Temperatura muito elevada pode agravar as perdas em até 40%';
+        }
+
+        // verificando se está zerado
+        if(celciusDegree == 0){
+            grainQuality = 'duvidosa';
+            grainQualitySentence = 'A termomêtria é fundamental no processo de armazenamento';
         }
 
         // tornando o modal visível
