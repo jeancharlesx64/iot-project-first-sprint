@@ -9,10 +9,15 @@
 </head>
 
 <body>
+    <h1>Simulador financeiro</h1>
     <div>
         Quantidade de quilogramas armazenadas <br> <br>
         <input placeholder="0Kg" id="qtd_kg"
-            style="border-radius: 12px; text-align: center; height: 40px; width: 190px;"> <br> <br>
+            > <br> <br>
+
+        Valor do quilo do grão de milho<br> <br>
+        <input placeholder="R$1.50" id="preco_kg"
+            style="border-radius: 12px;"> <br> <br>
 
         Selecione o estado para o serviço <br> <br>
         <select id="sel_estado" style="border-radius: 12px; height: 40px; width: 190px; text-align: center;"> <!-- criando uma seleção com opções -->
@@ -37,66 +42,60 @@
 </html>
 <script>
     function calcular() {
-        var quilo = Number(qtd_kg.value) // transformando o valor do input qtd_kg para número
+        var quilo = Number(qtd_kg.value) // transforma o valor do input qtd_kg para número
+        var preco = Number(preco_kg.value)
         var estado = sel_estado.value
+        var total = preco * quilo // multiplicação do preço e quilo informado pelo cliente nos inputs
         var mensagem = '' // variável mensagem vazia
 
         // faz uma verificação, caso seja verdade, entra no if. Senão faz uma nova verificação no else if, caso nenhum seja verdadeiro, entra no else
         if (estado == 'sp') {
 
-            var preco = quilo * 1.28 // calcula o preço com base nos quilogramas
-            mensagem = `<br>No estado de ${estado.toUpperCase()}, seu lucro com base no total de quilogramas, deveria ser R$${(preco).toFixed(2)}.<br><br>
-            A estimativa de perda em ${estado.toUpperCase()} é de 8%, reduzindo seu lucro para R$${(preco * 0.92).toFixed(2)}.<br><br>
-            Com o nosso serviço, você economizará aproximadamente R$${(preco * 0.08).toFixed(2)}.`
+            mensagem = `<br>Vendendo o quilo do grão de milho por R$${preco} seu lucro deveria ser R$${(total).toFixed(2)}<br><br>
+            A estimativa de perda nos armazéns em ${estado.toUpperCase()} é de 4%, reduzindo seu lucro para R$${(total * 0.96).toFixed(2)}<br><br>
+            Com o nosso serviço, você reduzirá a perda em aproximadamente R$${(total * 0.04).toFixed(2)}`
 
         } else if (estado == 'ms') {
 
-            var preco = quilo * 1.34 // calcula o preço com base nos quilogramas
-            mensagem = `<br>No estado de ${estado.toUpperCase()}, seu lucro com base no total de quilogramas, deveria ser R$${(preco).toFixed(2)}.<br><br>
-            A estimativa de perda em ${estado.toUpperCase()} é de 15%, reduzindo seu lucro para R$${(preco * 0.85).toFixed(2)}.<br><br>
-            Com o nosso serviço, você economizará aproximadamente R$${(preco * 0.15).toFixed(2)}.`
+            mensagem = `<br>Vendendo o quilo do grão de milho por R$${preco} seu lucro deveria ser R$${(total).toFixed(2)}<br><br>
+            A estimativa de perda nos armazéns em ${estado.toUpperCase()} é de 7,5%, reduzindo seu lucro para R$${(total * 0.925).toFixed(2)}<br><br>
+            Com o nosso serviço, você reduzirá a perda em aproximadamente R$${(total * 0.075).toFixed(2)}`
 
         } else if (estado == 'pr') {
 
-            var preco = quilo * 1.36 // calcula o preço com base nos quilogramas
-            mensagem = `<br>No estado de ${estado.toUpperCase()}, seu lucro com base no total de quilogramas, deveria ser R$${(preco.toFixed(2))}.<br><br>
-            A estimativa de perda em ${estado.toUpperCase()} é de 20%, reduzindo seu lucro para R$${(preco * 0.80).toFixed(2)}.<br><br>
-            Com o nosso serviço, você economizará aproximadamente R$${(preco * 0.20).toFixed(2)}.`
+            mensagem = `<br>Vendendo o quilo do grão de milho por R$${preco} seu lucro deveria ser R$${(total.toFixed(2))}<br><br>
+            A estimativa de perda nos armazéns em ${estado.toUpperCase()} é de 10%, reduzindo seu lucro para R$${(total * 0.90).toFixed(2)}<br><br>
+            Com o nosso serviço, você reduzirá a perda em aproximadamente R$${(total * 0.10).toFixed(2)}`
 
         } else if (estado == 'mt') {
 
-            var preco = quilo * 1.40 // calcula o preço com base nos quilogramas
-            mensagem = `<br>No estado de ${estado.toUpperCase()}, seu lucro com base no total de quilogramas, deveria ser R$${(preco).toFixed(2)}.<br><br>
-            A estimativa de perda em ${estado.toUpperCase()} é de 7%, reduzindo seu lucro para R$${(preco * 0.93).toFixed(2)}.<br><br>
-            Com o nosso serviço, você economizará aproximadamente R$${(preco * 0.07).toFixed(2)}.`
+            mensagem = `<br>Vendendo o quilo do grão de milho por R$${preco} seu lucro deveria ser R$${(total).toFixed(2)}<br><br>
+            A estimativa de perda nos armazéns em ${estado.toUpperCase()} é de 3,5%, reduzindo seu lucro para R$${(total * 0.965).toFixed(2)}<br><br>
+            Com o nosso serviço, você reduzirá a perda em aproximadamente R$${(total * 0.035).toFixed(2)}`
 
         } else if (estado == 'go') {
 
-            var preco = quilo * 1.35 // calcula o preço com base nos quilogramas
-            mensagem = `<br>No estado de ${estado.toUpperCase()}, seu lucro com base no total de quilogramas, deveria ser R$${(preco).toFixed(2)}.<br><br>
-            A estimativa de perda em ${estado.toUpperCase()} é de 10%, reduzindo seu lucro para R$${(preco * 0.90).toFixed(2)}.<br><br>
-            Com o nosso serviço, você economizará aproximadamente R$${(preco * 0.10).toFixed(2)}.`
+            mensagem = `<br>Vendendo o quilo do grão de milho por R$${preco} seu lucro deveria ser R$${(total).toFixed(2)}<br><br>
+            A estimativa de perda nos armazéns em ${estado.toUpperCase()} é de 5%, reduzindo seu lucro para R$${(total * 0.95).toFixed(2)}<br><br>
+            Com o nosso serviço, você reduzirá a perda em aproximadamente R$${(total * 0.05).toFixed(2)}`
 
         } else if (estado == 'rs') {
 
-            var preco = quilo * 1.30 // calcula o preço com base nos quilogramas
-            mensagem = `<br>No estado de ${estado.toUpperCase()}, seu lucro com base no total de quilogramas, deveria ser R$${(preco).toFixed(2)}.<br><br>
-            A estimativa de perda em ${estado.toUpperCase()} é de 18%, reduzindo seu lucro para R$${(preco * 0.82).toFixed(2)}.<br><br>
-            Com o nosso serviço, você economizará aproximadamente R$${(preco * 0.18).toFixed(2)}.`
+            mensagem = `<br>Vendendo o quilo do grão de milho por R$${preco} seu lucro deveria ser R$${(total).toFixed(2)}<br><br>
+            A estimativa de perda nos armazéns em ${estado.toUpperCase()} é de 9%, reduzindo seu lucro para R$${(total * 0.91).toFixed(2)}<br><br>
+            Com o nosso serviço, você reduzirá a perda em aproximadamente R$${(total * 0.09).toFixed(2)}`
 
         } else if (estado == 'mg') {
 
-            var preco = quilo * 1.50 // calcula o preço com base nos quilogramas
-            mensagem = `<br>No estado de ${estado.toUpperCase()}, seu lucro com base no total de quilogramas, deveria ser R$${(preco).toFixed(2)}.<br><br>
-            A estimativa de perda em ${estado.toUpperCase()} é de 10%, reduzindo seu lucro para R$${(preco * 0.90).toFixed(2)}.<br><br>
-            Com o nosso serviço, você economizará aproximadamente R$${(preco * 0.10).toFixed(2)}.`
+            mensagem = `<br>Vendendo o quilo do grão de milho por R$${preco} seu lucro deveria ser R$${(total).toFixed(2)}<br><br>
+            A estimativa de perda nos armazéns em ${estado.toUpperCase()} é de 5%, reduzindo seu lucro para R$${(total * 0.95).toFixed(2)}<br><br>
+            Com o nosso serviço, você reduzirá a perda em aproximadamente R$${(total * 0.05).toFixed(2)}`
 
         } else {
 
-            var preco = quilo * 1.32 // calcula o preço com base nos quilogramas
-            mensagem = `<br>No estado de ${estado.toUpperCase()}, seu lucro com base no total de quilogramas, deveria ser R$${(preco).toFixed(2)}.<br><br>
-            A estimativa de perda em ${estado.toUpperCase()} é de 12%, reduzindo seu lucro para R$${(preco * 0.88).toFixed(2)}.<br><br>
-            Com o nosso serviço, você economizará aproximadamente R$${(preco * 0.12).toFixed(2)}.`
+            mensagem = `<br>Vendendo o quilo do grão de milho por R$${preco} seu lucro deveria ser R$${(total).toFixed(2)}<br><br>
+            A estimativa de perda nos armazéns em ${estado.toUpperCase()} é de 6%, reduzindo seu lucro para R$${(total * 0.94).toFixed(2)}<br><br>
+            Com o nosso serviço, você reduzirá a perda em aproximadamente R$${(total * 0.06).toFixed(2)}`
 
         }
 

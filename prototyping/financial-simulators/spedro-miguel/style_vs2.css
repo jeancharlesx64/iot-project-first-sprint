@@ -1,17 +1,34 @@
 body {
     font-family: Arial, sans-serif; /* Define a fonte padrão para o documento */
     background-color: #f0f0f0; /* Define a cor de fundo para o corpo da página */
+    background-image: url("https://img.freepik.com/fotos-gratis/frescor-da-espiga-de-milho-organico-uma-refeicao-saudavel-de-verao-gerada-por-inteligencia-artificial_25030-65212.jpg?w=1060&t=st=1710940634~exp=1710941234~hmac=99b0512961b0d6ddaceeec4741439a8f9e1d6ffba83150d32bf6d958e5fd70cc"); /* Adicona uma imagem de fundo */
+    background-repeat: no-repeat; /* Faz com que a imagem de fundo seja única e não repita */
+    background-size: cover; /* Certifica de que a imagem cobrirá sempre o body inteiro */
     margin: 0; /* Remove as margens padrão do corpo da página */
     padding: 0; /* Remove o preenchimento padrão do corpo da página */
 }
 
+h1 {
+    color: white; /* Muda a cor da fonte para branco */
+    display: flex; /* Deixa os elementos flexíveis na tela */
+    align-items: center; /* Alinha os itens no centro */
+    justify-content: center; /* Centraliza o conteúdo */
+    flex-direction: column; /* Muda a direção do flex para coluna */
+}
+
 div {
-    background-color: #fff; /* Define a cor de fundo para todas as divs */
+    display: flex; /* Deixa os elementos flexíveis na tela */
+    align-items: center; /* Alinha os itens no centro */
+    justify-content: center; /* Centraliza o conteúdo */
+    flex-direction: column; /* Muda a direção do flex para coluna */
+    color: white; /* Muda a cor da fonte para branco */
+    background-color: rgba(37, 37, 37, 0.5); /* Define a cor de fundo para todas as divs */
     width: 300px; /* Define a largura das divs */
     margin: 50px auto; /* Define as margens superior e inferior das divs como 50px e as laterais como automático (centralizado) */
     padding: 20px; /* Define o preenchimento interno das divs */
     border-radius: 10px; /* Define o raio da borda das divs */
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); /* Adiciona uma sombra à caixa das divs */
+    backdrop-filter: blur(10px); /* adiciona efeito de blur */
 }
 
 input,
@@ -23,11 +40,13 @@ button {
 
 input,
 select {
-    width: 100%; /* Define a largura dos inputs e selects como 100% do contêiner pai */
     padding: 10px; /* Define o preenchimento interno dos inputs e selects */
     border: 1px solid #ccc; /* Define uma borda de 1px sólida com a cor cinza */
-    border-radius: 5px; /* Define o raio da borda dos inputs e selects */
+    border-radius: 12px; /* Define o raio da borda dos inputs e selects */
     box-sizing: border-box; /* Faz com que o preenchimento e a borda não aumentem a largura total dos inputs e selects */
+    text-align: center; /* Alinha o texto no centro */
+    height: 40px; /*Altera a altura*/
+    width: 190px; /* Altera a largura */
 }
 
 button {
