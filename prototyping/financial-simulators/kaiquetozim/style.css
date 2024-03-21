@@ -2,6 +2,9 @@ body {
 
 
     background-image :url("https://terramagna.com.br/wp-content/uploads/2023/01/Sementes-milho-doce-folhas-verdes-campo-milho-1024x508.jpg");
+    background-repeat: no-repeat; /* não repetir a imagem */
+    background-size: cover;  /*  ocupar a tela toda */
+    background-position: fixed;
     margin: 0;
     padding: 0;
         
@@ -9,15 +12,13 @@ body {
 }
 
 div {
-
-
     background-color: rgba(245, 245, 245, 0.87);
-
     width: 400px;
     margin: 0px auto;
     border-radius: 10px;
-
-}
+    backdrop-filter: blur(10px);
+  }
+  
 
 .classe1 {
 
