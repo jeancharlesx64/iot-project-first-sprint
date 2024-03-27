@@ -1,6 +1,6 @@
 
 
-<h1 align="center">IoT Project - 1st Semester | SPTech School</h1>
+<h1 align="center">IoT Project - 1st Sprint | SPTech School</h1>
 
 Project developed in the 1st Semester of SPTech Scool, is a project that must be integrated with IoT. We must look for a relevant problem with high social/economic impact, and the solution must be simple and efficient, based on the simulation using Arduino, we must build an embedded project using some of the sensors below to build the solution defined by the group:
 
